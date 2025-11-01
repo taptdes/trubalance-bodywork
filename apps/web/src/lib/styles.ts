@@ -24,7 +24,7 @@ export const GALLERY_SIZE_STYLES: Record<"sm" | "md" | "lg", string> = {
 export const HERO_CONTENT_STYLES = {
   container: "relative z-10 flex flex-col gap-4 p-8",
 
-  title: "flex relative w-full max-w-285 shrink-0 justify-center animate-fade-in font-merriweather text-center not-italic text-6xl md:text-5xl sm:text-4xl text-white ",
+  title: "flex relative w-full max-w-285 shrink-0 justify-center animate-fade-in font-merriweather text-center not-italic text-6xl md:text-5xl sm:text-4xl text-black ",
   subheader: "flex relative w-full max-w-150 mb-8 text-center font-karla text-white/90 text-xl leading-relaxed animate-fade-in",
 
   buttons: "flex gap-3 z-3",

@@ -134,6 +134,7 @@
     "express": "^5.1.0",
     "firebase": "^12.3.0",
     "firebase-admin": "^11.9.0",
+    "framer-motion": "^12.23.19",
     "launchdarkly-react-client-sdk": "^3.8.1",
     "typescript": "^5.9.2"
   }

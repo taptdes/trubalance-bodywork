@@ -4,7 +4,7 @@ import type { AvailableIcons } from '@/components/ui/Icon'
 export type PageType =
   | 'home'
   | 'our-story'
-  | 'listings'
+  | 'booking'
   | 'resources'
   | 'blog'
   | 'contact'
