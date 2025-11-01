@@ -8,6 +8,8 @@ export interface BGProps {
   images?: Record<Breakpoint, string>; // responsive images
   fallback?: string; // fallback for single image
   alt?: string;
+  semiTransparentWhiteBg?: boolean;
+  blur?: boolean;
   className?: string;
 }
 
@@ -29,7 +31,11 @@ export interface HeroButton {
 }
 
 export interface GalleryProps {
-  images: string[];
+  images: {
+    src: string
+    alt?: string
+    type?: "image" | "video"
+  }[]
   className?: string;
   size?: "sm" | "md" | "lg";
 }

@@ -4,7 +4,7 @@ import type { Socials } from "./types"
 export const navitems: { text: string; page: PageType }[] = [
   { text: 'Home', page: 'home' },
   { text: 'About', page: 'our-story' },
-  { text: 'Listings', page: 'listings' },
+  { text: 'Booking', page: 'booking' },
   { text: 'Resources', page: 'resources' },
   { text: 'Contact', page: 'contact' },
 ]
