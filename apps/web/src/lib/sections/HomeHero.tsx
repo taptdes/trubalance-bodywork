@@ -8,9 +8,9 @@ import imgStones from "@/assets/images/img_stones.jpg"
 import imgWaterRipple from "@/assets/images/img_waterRipples.jpg"
 import imgYoga from "@/assets/images/img_yoga.jpg"
 import imgRoom from "@/assets/images/img_room.jpg"
-import bgImgSM from "@/assets/images/bg_whiteTexture.webp"
-import bgImgMD from "@/assets/images/bg_whiteTexture.webp"
-import bgImgLG from "@/assets/images/bg_whiteTexture.webp"
+import bgImgSM from "@/assets/images/bg-whiteTexture.webp"
+import bgImgMD from "@/assets/images/bg-whiteTexture.webp"
+import bgImgLG from "@/assets/images/bg-whiteTexture.webp"
 
 {/*
 const heroImages = {
