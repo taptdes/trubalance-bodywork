@@ -1,5 +1,5 @@
 {
-  "name": "TruBalance Bodywork",
+  "name": "trubalance-bodywork",
   "version": "1.0.0",
   "description": "TruBalance Bodywork in Orem, Utah provides massage therapy and energy work tailored to restore your body and uplift your spirit.",
   "main": "index.js",
@@ -24,6 +24,13 @@
     "lint:fix": "pnpm eslint . --ext .js,.ts,.jsx,.tsx --fix",
     "test": "vitest run",
     "check": "pnpm lint && pnpm test && pnpm build"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "7.1.12",
+      "@vitejs/plugin-react": "5.0.3",
+      "@tailwindcss/vite": "4.1.13"
+    }
   },
   "lint-staged": {
     "*.{js,ts,tsx,jsx}": [
@@ -103,6 +110,9 @@
     "@types/react-dom": "^19.1.7",
     "@typescript-eslint/eslint-plugin": "^8.39.0",
     "@typescript-eslint/parser": "^8.39.0",
+    "@vitest/browser": "4.0.6",
+    "@vitest/browser-playwright": "4.0.6",
+    "@vitest/coverage-v8": "4.0.6",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -122,8 +132,8 @@
     "stylelint-config-tailwindcss": "^0.0.7",
     "ts-node": "^10.9.2",
     "turbo": "^2.5.4",
-    "vite": "^7.1.6",
-    "vitest": "^3.2.4"
+    "vite": "7.1.12",
+    "vitest": "4.0.6"
   },
   "dependencies": {
     "@google-cloud/recaptcha-enterprise": "^6.3.0",
