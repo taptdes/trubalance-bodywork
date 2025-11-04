@@ -1,4 +1,4 @@
-import { Waves, Zap, Sparkles, Heart, Star } from 'lucide-react'
+import { Waves, Zap, Sparkles, Star } from 'lucide-react'
 const backendUrl = import.meta.env.VITE_BACKEND_URL
 
 export interface ServicePage {

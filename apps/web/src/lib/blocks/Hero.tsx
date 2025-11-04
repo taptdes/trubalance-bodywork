@@ -21,8 +21,8 @@ const [mounted, setMounted] = useState(false)
   const { scrollY } = useScroll() // Framer Motion MotionValue
   const contentOpacity = useTransform(scrollY, [0, 300], [1, 0])
   const contentY = useTransform(scrollY, [0, 300], [0, -100])
-  const heroY = useTransform(scrollY, [0, 300], [0, -scrollY.get() / 3]) // optional, or useMotionValue
-  const heroOpacity = useTransform(scrollY, [0, 300], [1, 0])
+  // const heroY = useTransform(scrollY, [0, 300], [0, -scrollY.get() / 3]) // optional, or useMotionValue
+  // const heroOpacity = useTransform(scrollY, [0, 300], [1, 0])
 
   useEffect(() => setMounted(true), [])
 

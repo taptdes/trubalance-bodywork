@@ -8,7 +8,7 @@ import logoprimary from "/logo-primary.svg"
 
 export function Navigation({ onNavigate }: NavigationProps) {
   const location = useLocation()
-  const isHomePage = location.pathname === "/"
+  // const isHomePage = location.pathname === "/"
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const toggleMobileMenu = () => {

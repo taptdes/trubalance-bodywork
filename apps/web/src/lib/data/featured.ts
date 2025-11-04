@@ -1,6 +1,3 @@
-import imgCard1 from '@/assets/images/img_oceanVibes.jpg'
-import imgCard2 from '@/assets/images/img_oceanVibes.jpg'
-import imgCard3 from '@/assets/images/img_oceanVibes.jpg'
 const backendUrl = import.meta.env.VITE_BACKEND_URL
 
 export interface Service {

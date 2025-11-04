@@ -1,7 +1,4 @@
 import { motion } from 'framer-motion'
-import imgCard1 from '@/assets/images/img_oceanYoga.jpg'
-import imgCard2 from '@/assets/images/img_oceanYoga.jpg'
-import imgCard3 from '@/assets/images/img_oceanYoga.jpg'
 import { Heart, Clock } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import type { PageType } from "@/components/ui/navigation/types"
@@ -45,7 +42,7 @@ export function Services({ onNavigate }: { onNavigate: (page: PageType) => void 
                     className="w-full h-full object-cover"
                   />
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent" />
 
                   {/* Featured Badge */}
                   {featured.featured && (
@@ -84,7 +81,7 @@ export function Services({ onNavigate }: { onNavigate: (page: PageType) => void 
                       <Clock className="w-3.5 h-3.5 text-stone-600" />
                       <span className="text-[12.25px] text-gray-600">{featured.duration}</span>
                     </div>
-                    <span className="text-[21px] leading-[28px] tracking-[-0.525px] text-primary">{featured.price}</span>
+                    <span className="text-[21px] leading-7 tracking-[-0.525px] text-primary">{featured.price}</span>
                   </div>
 
                   {/* Book Button */}

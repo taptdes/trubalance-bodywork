@@ -1,15 +1,16 @@
-import { Card, CardContent } from "@/components/ui/card/card"
-import { Image } from "@/components/ui/image/image"
 import { motion } from 'framer-motion'
 import { Testimonials } from "@/components/testimonials"
+{/*
 const img1 = `${import.meta.env.VITE_API_URL}/assets/images/imgReviewsRochaIvan.webp`
 const img2 = `${import.meta.env.VITE_API_URL}/assets/images/imgReviewsBainterBaxter.webp`
 const img3 = `${import.meta.env.VITE_API_URL}/assets/images/imgReviewsFunkJessica.webp`
 const img4 = `${import.meta.env.VITE_API_URL}/assets/images/imgReviewsNielsenTrev.webp`
 const img5 = `${import.meta.env.VITE_API_URL}/assets/images/imgReviewsRigbyTiffany.webp`
 const img6 = `${import.meta.env.VITE_API_URL}/assets/images/imgReviewsHerbertDerren.webp`
+*/}
 
 export function TestimonialsSection() {
+  {/*
   const testimonials = [
     {
       name: "Ivan De Souza Rocha",
@@ -68,10 +69,11 @@ export function TestimonialsSection() {
       window.location.href = url
     }
   }
+    */}
 
   return (
       <motion.section 
-        className="py-20 w-full bg-gradient-to-br from-moss-100 to-mint-100 relative z-30"
+        className="py-20 w-full bg-linear-to-br from-moss-100 to-mint-100 relative z-30"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}

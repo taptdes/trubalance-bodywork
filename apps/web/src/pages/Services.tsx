@@ -1,7 +1,7 @@
-import React, { useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card/card'
-import { Clock, Star, Waves, X, Zap, Sparkles, Heart, ChevronDown } from 'lucide-react'
+import { Clock, Star, X, Sparkles, Heart, ChevronDown } from 'lucide-react'
 import { Image } from '@/components/ui/image'
 import {
   DropdownMenu,
@@ -81,7 +81,7 @@ export function Services({ onBookNow }: ServicesProps) {
 
         {/* Individual Services */}
         <div className="mb-20">
-           <div className="mb-10 sticky top-0 bg-gradient-to-br from-gray-50 via-emerald-50/30 to-teal-50/50 z-10 py-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+           <div className="mb-10 sticky top-0 bg-linear-to-br from-gray-50 via-emerald-50/30 to-teal-50/50 z-10 py-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
           <div className="flex items-center gap-2 overflow-x-auto pb-2 hide-scrollbar">
             
             {/* Duration Filter */}
@@ -187,7 +187,7 @@ export function Services({ onBookNow }: ServicesProps) {
         <div className="mb-20">
  {filteredAndSortedServices.length === 0 ? (
             <div className="text-center py-16">
-              <div className="w-20 h-20 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-20 h-20 bg-linear-to-br from-emerald-100 to-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Sparkles className="w-10 h-10 text-emerald-600" />
               </div>
               <h3 className="text-2xl font-light text-gray-900 mb-3">No services match your filters</h3>
@@ -287,10 +287,10 @@ export function Services({ onBookNow }: ServicesProps) {
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {packages.map((pkg, index) => (
               <Card key={index} className="relative overflow-hidden bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-500 group">
-                <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${pkg.gradient}`}></div>
+                <div className={`absolute top-0 left-0 right-0 h-2 bg-linear-to-r ${pkg.gradient}`}></div>
                 
                 <CardHeader className="text-center pb-6 pt-8">
-                  <div className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br ${pkg.gradient} text-white rounded-full mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
+                  <div className={`inline-flex items-center justify-center w-20 h-20 bg-linear-to-br ${pkg.gradient} text-white rounded-full mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
                     <Star className="w-10 h-10" />
                   </div>
                   <CardTitle className="text-2xl mb-2">{pkg.title}</CardTitle>
@@ -309,7 +309,7 @@ export function Services({ onBookNow }: ServicesProps) {
                   <Button 
                     onClick={onBookNow}
                     variant="outlined"
-                    className={`w-full border-2 bg-gradient-to-r ${pkg.gradient} bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-emerald-50 hover:to-teal-50 border-emerald-300 hover:border-emerald-400 transition-all duration-300 rounded-full py-3`}
+                    className={`w-full border-2 bg-linear-to-r ${pkg.gradient} bg-clip-text text-transparent hover:bg-linear-to-r hover:from-emerald-50 hover:to-teal-50 border-emerald-300 hover:border-emerald-400 transition-all duration-300 rounded-full py-3`}
                   >
                     Choose This Package
                   </Button>
@@ -331,19 +331,19 @@ export function Services({ onBookNow }: ServicesProps) {
               </h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 shrink-0"></div>
                   Initial consultation and personalized intake assessment
                 </li>
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 shrink-0"></div>
                   Customized session plan based on your needs and goals
                 </li>
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 shrink-0"></div>
                   Post-session integration support and guidance
                 </li>
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 shrink-0"></div>
                   Personalized self-care recommendations for home
                 </li>
               </ul>

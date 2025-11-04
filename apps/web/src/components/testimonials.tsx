@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Button } from './ui/button'
 import { Card, CardContent } from '@/components/ui/card/card'
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react'
@@ -7,7 +7,7 @@ interface TestimonialsProps {
   onBookNow: () => void;
 }
 
-export function Testimonials({ onBookNow }: TestimonialsProps) {
+export function Testimonials({  }: TestimonialsProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const testimonials = [

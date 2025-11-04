@@ -9,25 +9,27 @@ import imgOilDrops from "@/assets/images/img_oilsDrop.jpg"
 import imgStones from "@/assets/images/img_stones.jpg"
 import imgWaterRipple from "@/assets/images/img_waterRipples.jpg"
 import imgYoga from "@/assets/images/img_yoga.jpg"
-import imgRoom from "@/assets/images/img_room.jpg"
+
+import { Button } from "@/components/ui/button"
+{/*
+  import imgRoom from "@/assets/images/img_room.jpg"
 import bgImgSM from "@/assets/images/bg-whiteTexture.webp"
 import bgImgMD from "@/assets/images/bg-whiteTexture.webp"
 import bgImgLG from "@/assets/images/bg-whiteTexture.webp"
-import { Button } from "@/components/ui/button"
-{/*
 const heroImages = {
   sm: `${import.meta.env.VITE_API_URL}/assets/images/bgHomeHero-sm.webp`,
   md: `${import.meta.env.VITE_API_URL}/assets/images/bgHomeHero-md.webp`,
   lg: `${import.meta.env.VITE_API_URL}/assets/images/bgHomeHero-lg.webp`,
 }
-*/}
-
-const heroImages = {
+  const heroImages = {
   sm: bgImgSM,
     md: bgImgMD,
   lg: bgImgLG
 
 }
+*/}
+
+
 
 const galleryImages = [
   { src: imgOceanVibes, type: "image" as const, alt: "Ocean Vibes" },
@@ -36,7 +38,6 @@ const galleryImages = [
   { src: imgStones, type: "image" as const, alt: "Stones" },
   { src: imgWaterRipple, type: "image" as const, alt: "Water Ripple" },
   { src: imgYoga, type: "image" as const, alt: "Yoga" },
-  { src: imgRoom, type: "image" as const, alt: "Room" },
 ]
 
 {/*
