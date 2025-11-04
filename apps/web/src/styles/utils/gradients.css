@@ -1,0 +1,74 @@
+.bg-gradient-primary {
+  background: linear-gradient(135deg, rgb(141 199 87 / 100%) 0%, rgb(75 165 142 / 100%) 100%);
+}
+
+.hover\:bg-gradient-primary:hover {
+  background: linear-gradient(135deg, rgb(141 199 87 / 100%) 0%, rgb(0 188 125 / 100%) 46%, rgb(51 153 153 / 100%) 100%);
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(90deg, rgb(51 52 109 / 100%) 0%, rgb(85 155 97 / 100%) 100%);
+}
+
+.hover\:bg-gradient-secondary-dark:hover {
+  background: linear-gradient(90deg, rgb(32 32 58 / 100%) 0%, rgb(59 135 73 / 100%) 100%);
+}
+
+.bg-gradient-tertiary {
+  background: linear-gradient(135deg, rgb(16 24 40 / 100%) 0%, rgb(30 41 57 / 100%) 50%, rgb(0 79 59 / 100%) 100%);
+}
+
+.hover\:bg-gradient-tertiary:hover {
+  background: linear-gradient(135deg, rgb(16 24 40 / 100%) 0%, rgb(30 41 57 / 100%) 50%, rgb(0 79 59 / 100%) 100%);
+}
+
+.bg-gradient-ocean {
+  background: linear-gradient(135deg, rgb(0 213 190 / 100%) 0%, rgb(43 127 255 / 100%) 100%);
+}
+
+.bg-gradient-emerald {
+  background: linear-gradient(135deg, rgb(0 212 146 / 100%) 0%, rgb(0 187 167 / 100%) 100%);
+}
+
+.hover\:bg-gradient-emerald:hover {
+  background: linear-gradient(135deg, rgb(0 212 146 / 100%) 0%, rgb(0 187 167 / 100%) 100%);
+}
+
+.btn-gradient-primary {
+  background-image: linear-gradient(to right,
+      rgb(141 199 87) 0%,
+      rgb(165 221 116) 15%,
+      rgb(116 181 78) 53%,
+      rgb(85 155 97) 100%);
+}
+
+.btn-gradient-primary {
+  transition: 0.5s;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px #eee;
+  background-position: right center;
+}
+
+.btn-gradient-primary:hover {
+  background-position: left center;
+}
+
+.btn-gradient-secondary {
+  background-image: linear-gradient(to right,
+      rgb(162 192 238) 0%,
+      rgb(95 105 189) 31%,
+      rgb(83 85 184) 53%,
+      rgb(51 52 109) 79%,
+      rgb(32 32 58) 100%);
+}
+
+.btn-gradient-secondary {
+  transition: 0.5s;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px #eee;
+  background-position: right center;
+}
+
+.btn-gradient-secondary:hover {
+  background-position: left center;
+}
