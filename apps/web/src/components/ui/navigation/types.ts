@@ -3,11 +3,15 @@ import type { AvailableIcons } from '@/components/ui/Icon'
 
 export type PageType =
   | 'home'
-  | 'our-story'
+  | 'about'
+  | 'services'
   | 'booking'
+  | 'book'
+  | 'signin'
+  | 'contact'
+  | 'location'
   | 'resources'
   | 'blog'
-  | 'contact'
   | 'privacy'
   | 'terms'
   | 'policies';

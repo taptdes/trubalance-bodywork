@@ -1,20 +1,26 @@
 import React, { useState } from 'react'
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
-import { Home } from "./pages/Home";
+import ReactDOM from "react-dom/client"
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
+// import { Home } from "./pages/HomeNew";
+import { Home } from "./pages/Home"
 import { SanityPage } from "@/lib/cms/components/PageLayout"
-import { Navigation } from "@/components/ui/navigation";
-import type { PageType } from "@/components/ui/navigation/types";
+import { Navigation } from "@/components/ui/navigation"
+import type { PageType } from "@/components/ui/navigation/types"
 import { withLDProvider } from "launchdarkly-react-client-sdk"
+import { About } from './pages/About'
 import { Footer } from '@/components/ui/navigation/footer'
-import "./index.css";
-import "./App.css";
+import "./index.css"
+import "./App.css"
+import { Services } from './pages/Services'
+import { Contact } from './pages/Contact'
+import Resources from "@/pages/Resources"
+import ClinicInfo from "@/pages/Clinic"
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<PageType>('home');
+  const [currentPage, setCurrentPage] = useState<PageType>('home')
   const navigate = useNavigate()
 
-    const handleNavigate = (page: PageType) => {
+  const handleNavigate = (page: PageType) => {
     setCurrentPage(page)
     if (page === "home") navigate("/")
     else navigate(`/${page}`)
@@ -25,11 +31,18 @@ function App() {
       <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
       <Routes>
         <Route path="/" element={<Home onNavigate={handleNavigate} />} />
-        <Route path="/:slug" element={<SanityPage />} />
+        <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+
+                <Route path="/services" element={<Services onBookNow={() => { }} />} />
+   <Route path="/resources" element={<Resources />} />
+        <Route path="/location" element={<ClinicInfo />} />
+        {/* <Route path="/" element={<Home onBookNow={() => { }} onSectionChange={() => { }} />} />     */}    
+          <Route path="/:slug" element={<SanityPage />} />
       </Routes>
       <Footer onNavigate={handleNavigate} />
     </>
-  );
+  )
 }
 
 const LDApp = withLDProvider({

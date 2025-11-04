@@ -1,127 +1,178 @@
-import { Card, CardContent } from "@/components/ui/card/card"
-import { Image } from "@/components/ui/image/image"
+import React, { useState } from 'react'
+import { Button } from './ui/button'
+import { Card, CardContent } from '@/components/ui/card/card'
+import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react'
 
-const img1 = `${import.meta.env.VITE_API_URL}/assets/images/imgReviewsRochaIvan.webp`
-const img2 = `${import.meta.env.VITE_API_URL}/assets/images/imgReviewsBainterBaxter.webp`
-const img3 = `${import.meta.env.VITE_API_URL}/assets/images/imgReviewsFunkJessica.webp`
-const img4 = `${import.meta.env.VITE_API_URL}/assets/images/imgReviewsNielsenTrev.webp`
-const img5 = `${import.meta.env.VITE_API_URL}/assets/images/imgReviewsRigbyTiffany.webp`
-const img6 = `${import.meta.env.VITE_API_URL}/assets/images/imgReviewsHerbertDerren.webp`
+interface TestimonialsProps {
+  onBookNow: () => void;
+}
 
-export function TestimonialsSection() {
+export function Testimonials({ onBookNow }: TestimonialsProps) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
   const testimonials = [
     {
-      name: "Ivan De Souza Rocha",
-      location: "Salt Lake City, UT",
-      text: "I couldn't be happier with how Brittany and her team treated me and my property when it came time to sell. She made me as much as a priority as she would anyone. And it saved me so much time having her taking care of the whole selling process. I would definitely recommend her!",
-      rating: 5,
-      image: img1,
-      link: "https://www.facebook.com/plantingrootsrealty/reviews"
+      name: "Sarah M.",
+      service: "Swedish Massage",
+      text: "Brenden created such a safe and nurturing space for healing. I've been dealing with chronic tension for years, and after just one session, I felt more relaxed than I have in months. The trauma-informed approach made all the difference.",
+      rating: 5
     },
     {
-      name: "Baxter Bainter",
-      location: "Spanish Fork, UT",
-      text: "It was phenomenal working with Brittany as our agent. She was definitely on our side and was looking out for our best interests. Brittany walked us through the process as an expert and had the answer to all our questions. Whenever we are ready for our next move, Brittany will be our definite choice!!",
-      rating: 5,
-      image: img2,
-      link: "https://www.facebook.com/plantingrootsrealty/reviews"
+      name: "Michael R.",
+      service: "Deep Tissue & Reiki",
+      text: "I was skeptical about energy work, but the combination of deep tissue massage and Reiki was transformative. Brenden's intuitive touch and calming presence helped me release tension I didn't even know I was holding.",
+      rating: 5
     },
     {
-      name: "Jessica Funk",
-      location: "Clawson, UT",
-      text: "We bought a house and had fun throughout the whole process! BrittanyH is the coolest and knows her stuff! Thanks Brittany",
-      rating: 5,
-      image: img3,
-      link: "https://www.facebook.com/plantingrootsrealty/reviews"
+      name: "Jennifer L.",
+      service: "Chakra Balancing",
+      text: "The sound healing session with tuning forks was incredible. I could feel the vibrations working through my body, and I left feeling completely balanced and renewed. Highly recommend for anyone seeking holistic healing.",
+      rating: 5
     },
     {
-      name: "Trev Nielsen",
-      location: "Salt Lake City, UT",
-      text: "Brittany did all in her power to get us into a place and make everything perfect. Cannot recommend her enough!",
-      rating: 5,
-      image: img4,
-      link: "https://www.facebook.com/plantingrootsrealty/reviews"
+      name: "David T.",
+      service: "Trauma-Informed Bodywork",
+      text: "As someone with PTSD, finding a practitioner who truly understands trauma-informed care has been life-changing. Brenden's gentle approach and respect for boundaries made me feel completely safe throughout the session.",
+      rating: 5
     },
     {
-      name: "Tiffany Rigby",
-      location: "Payson, UT",
-      text: "Brittany is the best! She listens to you, she respects decisions, if you give her a list of things you like or dislike she will do her absolute best to make sure you are happy! I would 1000% recommend!!",
-      rating: 5,
-      image: img5,
-      link: "https://www.facebook.com/plantingrootsrealty/reviews"
+      name: "Maria C.",
+      service: "Reiki Energy Healing",
+      text: "I came in feeling emotionally drained and left feeling like a weight had been lifted off my shoulders. The energy work was subtle but powerful - I slept better that night than I had in weeks.",
+      rating: 5
     },
     {
-      name: "Derren Herbert",
-      location: "Provo, UT",
-      text: "Brittany is one of a kind. She really care about her clients. She puts her heart and soul into making buying and seeking your home a great experience.",
-      rating: 5,
-      image: img6,
-      link: "https://www.facebook.com/plantingrootsrealty/reviews"
+      name: "Robert K.",
+      service: "Swedish Massage Package",
+      text: "I've been seeing Brenden monthly for the past year as part of my wellness routine. Each session is tailored to exactly what my body needs that day. The consistency and quality of care is outstanding.",
+      rating: 5
     }
   ]
 
-  const handleCardClick = (url: string) => {
-    if (url.startsWith('http://') || url.startsWith('https://')) {
-      window.open(url, '_blank')
-    } else {
-      window.location.href = url
-    }
+  const nextTestimonial = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
+  }
+
+  const prevTestimonial = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
   }
 
   return (
-    <div className="relative shrink-0 w-full bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="flex flex-col items-center relative size-full">
-        <div className="box-border content-stretch flex flex-col items-center justify-start px-2.5 py-[80px] relative w-full">
-          <div className="max-w-[1140px] relative shrink-0 w-full">
-            <div className="text-center mb-16">
-              <h2 className="font-['Merriweather:Bold',_sans-serif] text-[#1a1a1a] text-[42px] font-bold mb-6">
-                What My Clients Say
-              </h2>
-              <p className="font-['Karla:Regular',_sans-serif] text-[#606060] text-[18px] max-w-2xl mx-auto leading-relaxed">
-                Real experiences from families I've helped achieve their real estate goals
-              </p>
-            </div>
+    <div className="min-h-screen bg-emerald-50 py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <Card
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl font-medium text-gray-900 mb-4">Client Testimonials</h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Hear from our clients about their healing journeys and transformative experiences
+          </p>
+        </div>
+
+        {/* Testimonial Carousel */}
+        <div className="relative mb-16">
+          <Card className="max-w-4xl mx-auto bg-white shadow-lg">
+            <CardContent className="p-8 md:p-12">
+              <div className="text-center">
+                <Quote className="w-12 h-12 text-emerald-600 mx-auto mb-6" />
+
+                <blockquote className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
+                  "{testimonials[currentIndex].text}"
+                </blockquote>
+
+                <div className="flex justify-center mb-4">
+                  {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+
+                <div className="text-center">
+                  <div className="font-medium text-gray-900">{testimonials[currentIndex].name}</div>
+                  <div className="text-gray-600">{testimonials[currentIndex].service}</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Navigation Buttons */}
+          <div className="flex justify-center items-center mt-8 space-x-4">
+            <Button
+              variant="outlined"
+              size="sm"
+              onClick={prevTestimonial}
+              className="p-2 rounded-full"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </Button>
+
+            <div className="flex space-x-2">
+              {testimonials.map((_, index) => (
+                <button
                   key={index}
-                  className={`border-0 shadow-xl bg-white hover:shadow-2xl transition-all duration-500 animate-fade-in-up hover:-translate-y-2 cursor-pointer`}
-                  style={{ animationDelay: `${(index + 1) * 100}ms` }}
-                  onClick={() => handleCardClick(testimonial.link)}
-                >
-                  <CardContent className="p-8">
-                    <div className="flex gap-4 mb-6">
-                      <Image
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className="rounded-full object-cover overflow-hidden"
-                        width={64}
-                        height={64}
-                      />
-                      <div>
-                        <h3 className="font-['Merriweather:Bold',_sans-serif] text-[#1a1a1a] text-[18px] font-semibold">
-                          {testimonial.name}
-                        </h3>
-                        <p className="font-['Karla:Regular',_sans-serif] text-[#606060] text-[14px]">
-                          {testimonial.location}
-                        </p>
-                        <div className="flex gap-1 mt-1">
-                          {Array.from({ length: testimonial.rating }).map((_, i) => (
-                            <span key={i} className="text-yellow-400">⭐</span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    <blockquote className="font-['Karla:Regular',_sans-serif] text-[#606060] text-[16px] leading-relaxed italic">
-                      "{testimonial.text}"
-                    </blockquote>
-                  </CardContent>
-                </Card>
+                  className={`w-3 h-3 rounded-full transition-colors ${index === currentIndex ? 'bg-emerald-600' : 'bg-gray-300'
+                    }`}
+                  onClick={() => setCurrentIndex(index)}
+                />
               ))}
             </div>
+
+            <Button
+              variant="outlined"
+              size="sm"
+              onClick={nextTestimonial}
+              className="p-2 rounded-full"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </Button>
           </div>
         </div>
+
+        {/* Stats Section */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="text-center">
+            <div className="text-3xl font-medium text-emerald-600 mb-2">500+</div>
+            <div className="text-gray-600">Happy Clients</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-medium text-emerald-600 mb-2">10+</div>
+            <div className="text-gray-600">Years Experience</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-medium text-emerald-600 mb-2">4.9</div>
+            <div className="text-gray-600">Average Rating</div>
+          </div>
+        </div>
+
+        {/* All Testimonials Grid */}
+        <div className="mb-16">
+          <h2 className="text-2xl font-medium text-gray-900 mb-8 text-center">More Client Stories</h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="bg-white hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex justify-center mb-3">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+
+                  <p className="text-gray-700 text-sm mb-4 leading-relaxed">
+                    "{testimonial.text}"
+                  </p>
+
+                  <div className="text-center border-t pt-4">
+                    <div className="font-medium text-gray-900 text-sm">{testimonial.name}</div>
+                    <div className="text-gray-600 text-xs">{testimonial.service}</div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+
+
       </div>
     </div>
   )

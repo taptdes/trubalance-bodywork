@@ -42,7 +42,16 @@ module.exports = {
           "while"
         ]
       }
-    ]
+    ],
+
+    "custom-property-pattern": null,
+    "selector-class-pattern": null,
+    "no-invalid-double-slash-comments": null,
+    "selector-type-no-unknown": [true, { ignoreTypes: ["/^\\./"] }],
+
+    "no-duplicate-selectors": null,
+
+    "selector-pseudo-class-no-unknown": [true, { ignorePseudoClasses: ["global"] }]
   },
   ignoreFiles: ["**/dist/**", "**/build/**", "**/storybook-static/**"]
 };

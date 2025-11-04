@@ -64,6 +64,8 @@ app.post("/contact", async (req: Request, res: Response) => {
   res.json({ message: "Success", id: docRef.id })
 })
 
+app.use("/images", express.static(path.join(__dirname, "assets/images")))
+
 // Start server
 const PORT = process.env.BACKEND_PORT || 3000
 app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`))

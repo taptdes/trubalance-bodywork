@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card/card"
 import { Image } from "@/components/ui/image/image"
-
+import { motion } from 'framer-motion'
+import { Testimonials } from "@/components/testimonials"
 const img1 = `${import.meta.env.VITE_API_URL}/assets/images/imgReviewsRochaIvan.webp`
 const img2 = `${import.meta.env.VITE_API_URL}/assets/images/imgReviewsBainterBaxter.webp`
 const img3 = `${import.meta.env.VITE_API_URL}/assets/images/imgReviewsFunkJessica.webp`
@@ -69,60 +70,24 @@ export function TestimonialsSection() {
   }
 
   return (
-    <div className="relative shrink-0 w-full bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="flex flex-col items-center relative size-full">
-        <div className="box-border content-stretch flex flex-col items-center justify-start px-2.5 py-[80px] relative w-full">
-          <div className="max-w-[1140px] relative shrink-0 w-full">
-            <div className="text-center mb-16">
-              <h2 className="font-['Merriweather:Bold',_sans-serif] text-[#1a1a1a] text-[42px] font-bold mb-6">
-                What My Clients Say
-              </h2>
-              <p className="font-['Karla:Regular',_sans-serif] text-[#606060] text-[18px] max-w-2xl mx-auto leading-relaxed">
-                Real experiences from families I've helped achieve their real estate goals
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <Card
-                  key={index}
-                  className={`border-0 shadow-xl bg-white hover:shadow-2xl transition-all duration-500 animate-fade-in-up hover:-translate-y-2 cursor-pointer`}
-                  style={{ animationDelay: `${(index + 1) * 100}ms` }}
-                  onClick={() => handleCardClick(testimonial.link)}
-                >
-                  <CardContent className="p-8">
-                    <div className="flex gap-4 mb-6">
-                      <Image
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className="rounded-full object-cover overflow-hidden"
-                        width={64}
-                        height={64}
-                      />
-                      <div>
-                        <h3 className="font-['Merriweather:Bold',_sans-serif] text-[#1a1a1a] text-[18px] font-semibold">
-                          {testimonial.name}
-                        </h3>
-                        <p className="font-['Karla:Regular',_sans-serif] text-[#606060] text-[14px]">
-                          {testimonial.location}
-                        </p>
-                        <div className="flex gap-1 mt-1">
-                          {Array.from({ length: testimonial.rating }).map((_, i) => (
-                            <span key={i} className="text-yellow-400">⭐</span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    <blockquote className="font-['Karla:Regular',_sans-serif] text-[#606060] text-[16px] leading-relaxed italic">
-                      "{testimonial.text}"
-                    </blockquote>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+      <motion.section 
+        className="py-20 w-full bg-gradient-to-br from-moss-100 to-mint-100 relative z-30"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-light text-gray-900 mb-6">
+              Healing <span className="text-emerald-600 font-medium">Stories</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Real experiences from our wellness community
+            </p>
           </div>
+          <Testimonials onBookNow={() => { }}/>
         </div>
-      </div>
-    </div>
+      </motion.section>
   )
 }

@@ -4,7 +4,11 @@ import type { PageType } from "@/components/ui/navigation/types"
 
 export function Footer({ onNavigate }: { onNavigate: (page: PageType) => void }) {
   return (
-    <footer className="relative shrink-0 w-full bg-[#1a1a1a] text-white">
+    <footer className="relative shrink-0 w-full bg-gradient-tertiary text-white">
+       <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-emerald rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-gradient-ocean rounded-full blur-3xl"></div>
+      </div>
       <div className="flex flex-col items-center relative size-full">
         <div className="box-border content-stretch flex flex-col items-center justify-start px-2.5 py-[80px] relative w-full">
           <div className="max-w-[1140px] relative shrink-0 w-full">

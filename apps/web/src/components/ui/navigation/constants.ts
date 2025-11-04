@@ -2,14 +2,14 @@ import type { PageType } from "./types"
 import type { Socials } from "./types"
 
 export const navitems: { text: string; page: PageType }[] = [
-  { text: 'Home', page: 'home' },
-  { text: 'About', page: 'our-story' },
-  { text: 'Booking', page: 'booking' },
+  { text: 'About', page: 'about' },
+  { text: 'Services', page: 'services' },
   { text: 'Resources', page: 'resources' },
-  { text: 'Contact', page: 'contact' },
+  { text: 'Location', page: 'location' },
 ]
 
 export const PHONE_NUMBER = "(801) 400-9242"
+export const CTA = "Book now"
 
 export const defaultSocials: Socials[] = [
   { platform: "Facebook", href: "https://facebook.com", icon: "facebook" },
@@ -23,5 +23,5 @@ export const moreLinks: { text: string; page: PageType }[] = [
   { text: 'Policies', page: 'policies' },
 ]
 
-export const companyName = "Planting Roots Realty"
+export const companyName = "TruBalance Bodywork"
 export const copyrightYear = new Date().getFullYear()
