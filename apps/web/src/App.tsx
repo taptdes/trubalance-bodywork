@@ -8,7 +8,7 @@ import { Navigation } from "@/components/ui/navigation"
 import type { PageType } from "@/components/ui/navigation/types"
 import { withLDProvider } from "launchdarkly-react-client-sdk"
 import { About } from './pages/About'
-import { Footer } from '@/components/ui/navigation/footer'
+import { Footer } from '@/lib/blocks/Footer'
 import "./index.css"
 import { Services } from './pages/Services'
 import { Contact } from './pages/Contact'
@@ -39,7 +39,7 @@ function App() {
         {/* <Route path="/" element={<Home onBookNow={() => { }} onSectionChange={() => { }} />} />     */}    
           <Route path="/:slug" element={<SanityPage />} />
       </Routes>
-      <Footer onNavigate={handleNavigate} />
+      <Footer onSectionChange={() => {}} />
     </>
   )
 }

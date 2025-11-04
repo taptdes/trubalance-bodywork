@@ -8,13 +8,12 @@
   .text-disabled { color: var(--color-neutral-400); }
   .text-contrast { color: var(--color-contrast); }
   
-  .text-primary { color: var(--color-primary); }
-  .text-primary-light { color: var(--color-primary-light); }
-  .text-primary-dark { color: var(--color-primary-dark); }
-
-  .text-secondary { color: var(--color-secondary); }
-  .text-secondary-light { color: var(--color-secondary-light); }
-  .text-secondary-dark { color: var(--color-secondary-dark); }
+   .text-primary { color: var(--colors-sage-400, #8DC757); }
+  .text-primary-light { color: var(--colors-sage-200, #C0EA9A); }
+  .text-primary-dark { color: var(--colors-sage-700, #559B61); }
+  .text-secondary { color: var(--colors-sky-900, #33346D); }
+  .text-secondary-light { color: var(--colors-sky-400, #A2AEBA); }
+  .text-secondary-dark { color: var(--colors-sky-1000, #353744); }
 
   .text-accent { color: var(--color-accent); }
   .text-accent-light { color: var(--color-accent-light); }

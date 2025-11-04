@@ -1,145 +1,192 @@
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator/separator"
-import type { PageType } from "@/components/ui/navigation/types"
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
+import { Heart, Instagram, Facebook, Mail, Phone, MapPin, FileText, HelpCircle } from 'lucide-react'
+import logoImage from '/logo-mark.svg'
 
-export function Footer({ onNavigate }: { onNavigate: (page: PageType) => void }) {
+interface FooterProps {
+  onSectionChange: (section: string) => void;
+}
+
+export function Footer({ onSectionChange }: FooterProps) {
+  const quickLinks = [
+    { id: 'about', label: 'About Brenden' },
+    { id: 'services', label: 'Services & Pricing' },
+    { id: 'contact', label: 'Contact Us' }
+  ]
+
+  const legalLinks = [
+    { id: 'policies', label: 'Policies & Terms', icon: <FileText className="w-4 h-4" /> },
+    { id: 'faq', label: 'FAQ', icon: <HelpCircle className="w-4 h-4" /> }
+  ]
+
+  const services = [
+    'Swedish Massage',
+    'Deep Tissue Massage', 
+    'Reiki Energy Healing',
+    'Chakra Balancing',
+    'Trauma-Informed Bodywork',
+    'Sound Healing'
+  ]
+
   return (
-    <footer className="relative shrink-0 w-full bg-[#1a1a1a] text-white">
-      <div className="flex flex-col items-center relative size-full">
-        <div className="box-border content-stretch flex flex-col items-center justify-start px-2.5 py-[80px] relative w-full">
-          <div className="max-w-[1140px] relative shrink-0 w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-              {/* Company Info */}
-              <div className="space-y-6">
-                <div>
-                  <h3 className="font-['Merriweather:Bold',_sans-serif] text-[24px] font-bold mb-4">
-                    Planting Roots Realty
-                  </h3>
-                  <p className="font-['Karla:Regular',_sans-serif] text-white/80 text-[16px] leading-relaxed">
-                    Your trusted Utah County real estate expert, helping families find their perfect home with nearly 6 years of experience.
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  <p className="font-['Karla:Medium',_sans-serif] text-white font-medium">Brittni Bingham</p>
-                  <p className="font-['Karla:Regular',_sans-serif] text-white/80 text-[14px]">Licensed Real Estate Agent</p>
-                  <p className="font-['Karla:Regular',_sans-serif] text-white/80 text-[14px]">Utah County & Surrounding Areas</p>
-                </div>
+    <footer className="bg-linear-to-br from-gray-900 via-gray-800 to-emerald-900 text-white relative overflow-hidden">
+      {/* Decorative background */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-linear-to-br from-emerald-400 to-teal-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-linear-to-br from-teal-400 to-blue-500 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        {/* Main Footer Content */}
+        <div className="grid md:grid-cols-4 gap-12 mb-12">
+          
+          {/* Brand & Mission */}
+          <div className="md:col-span-1">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 shadow-lg">
+                <img
+                  src={logoImage}
+                  alt="TruBalance Bodywork Logo"
+                  className="w-full h-full object-cover rounded-full"
+                />
               </div>
-
-              {/* Quick Links */}
-              <div className="space-y-6">
-                <h4 className="font-['Merriweather:Bold',_sans-serif] text-[20px] font-bold">Quick Links</h4>
-                <div className="space-y-3">
-                  {[
-                    { text: 'Home', page: 'home' as PageType },
-                    { text: 'Our Story', page: 'our-story' as PageType },
-                    { text: 'Listings', page: 'listings' as PageType },
-                    { text: 'Blog', page: 'blogs' as PageType },
-                    { text: 'Contact', page: 'contact' as PageType }
-                  ].map((link, index) => (
-                    <button
-                      key={index}
-                      onClick={() => onNavigate(link.page)}
-                      className="block font-['Karla:Regular',_sans-serif] text-white/80 hover:text-white transition-colors text-[16px] text-left"
-                    >
-                      {link.text}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Services */}
-              <div className="space-y-6">
-                <h4 className="font-['Merriweather:Bold',_sans-serif] text-[20px] font-bold">Services</h4>
-                <div className="space-y-3">
-                  {[
-                    'Home Buying',
-                    'Home Selling', 
-                    'Investment Properties',
-                    'Market Analysis',
-                    'First-Time Buyers',
-                    'Relocation Services'
-                  ].map((service, index) => (
-                    <p key={index} className="font-['Karla:Regular',_sans-serif] text-white/80 text-[16px]">
-                      {service}
-                    </p>
-                  ))}
-                </div>
-              </div>
-
-              {/* Contact Info */}
-              <div className="space-y-6">
-                <h4 className="font-['Merriweather:Bold',_sans-serif] text-[20px] font-bold">Get In Touch</h4>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[20px]">📱</span>
-                    <a href="tel:+18014009242" className="font-['Karla:Regular',_sans-serif] text-white/80 hover:text-white transition-colors">
-                      (801) 400-9242
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-[20px]">📧</span>
-                    <a href="mailto:brittni@plantingrootsrealty.com" className="font-['Karla:Regular',_sans-serif] text-white/80 hover:text-white transition-colors">
-                      brittni@plantingrootsrealty.com
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-[20px]">📍</span>
-                    <span className="font-['Karla:Regular',_sans-serif] text-white/80">
-                      Utah County, UT
-                    </span>
-                  </div>
-                </div>
-
-                {/* Social Links */}
-                <div className="space-y-3">
-                  <h5 className="font-['Karla:Medium',_sans-serif] text-white font-medium">Follow Me</h5>
-                  <div className="flex gap-3">
-                    {['Facebook', 'Instagram', 'LinkedIn', 'YouTube'].map((platform, index) => (
-                      <Button
-                        key={index}
-                        variant="outlined"
-                        size="sm"
-                        className="border-white/30 text-white/80 hover:bg-white/10 hover:text-white"
-                      >
-                        {platform}
-                      </Button>
-                    ))}
-                  </div>
-                </div>
+              <div>
+                <span className="text-xl font-light tracking-wide">TruBalance</span>
+                <div className="text-sm text-emerald-400 font-medium -mt-1">Bodywork</div>
               </div>
             </div>
-
-            <Separator className="bg-white/20 mb-8" />
-
-            {/* Bottom Footer */}
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <div className="font-['Karla:Regular',_sans-serif] text-white/60 text-[14px]">
-                © 2024 Planting Roots Realty. All rights reserved.
-              </div>
-              <div className="flex gap-6">
-                <button className="font-['Karla:Regular',_sans-serif] text-white/60 hover:text-white/80 transition-colors text-[14px]">
-                  Privacy Policy
-                </button>
-                <button className="font-['Karla:Regular',_sans-serif] text-white/60 hover:text-white/80 transition-colors text-[14px]">
-                  Terms of Service
-                </button>
-                <button className="font-['Karla:Regular',_sans-serif] text-white/60 hover:text-white/80 transition-colors text-[14px]">
-                  Equal Housing Opportunity
-                </button>
-              </div>
-            </div>
-
-            {/* License Info */}
-            <div className="mt-6 pt-6 border-t border-white/20">
-              <p className="font-['Karla:Regular',_sans-serif] text-white/60 text-[12px] text-center leading-relaxed">
-                Brittni Bingham - Licensed Real Estate Agent in Utah. 
-                All information deemed reliable but not guaranteed. 
-                Equal Housing Opportunity.
-              </p>
+            <p className="text-gray-300 leading-relaxed mb-6">
+              Creating sacred spaces for healing and transformation through compassionate, 
+              trauma-informed bodywork and energy healing.
+            </p>
+            <div className="flex space-x-4">
+              <a 
+                href="#" 
+                className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-emerald-500 transition-all duration-300 hover:scale-110 group"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              </a>
+              <a 
+                href="#" 
+                className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-emerald-500 transition-all duration-300 hover:scale-110 group"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              </a>
             </div>
           </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-medium mb-6 text-emerald-400">Navigation</h3>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.id}>
+                  <button
+                    onClick={() => onSectionChange(link.id)}
+                    className="text-gray-300 hover:text-emerald-400 transition-colors duration-300 hover:translate-x-1 transform"
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
+              <li className="pt-4">
+                <Button
+                  onClick={() => onSectionChange('booking')}
+                  className="bg-linear-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-6 py-2 rounded-full transition-all duration-300 hover:scale-105"
+                >
+                  Book Session
+                </Button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="text-lg font-medium mb-6 text-emerald-400">Healing Services</h3>
+            <ul className="space-y-3">
+              {services.map((service) => (
+                <li key={service}>
+                  <button
+                    onClick={() => onSectionChange('services')}
+                    className="text-gray-300 hover:text-emerald-400 transition-colors duration-300 text-left"
+                  >
+                    {service}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-lg font-medium mb-6 text-emerald-400">Connect With Us</h3>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3 group">
+                <Mail className="w-5 h-5 text-emerald-400 mt-0.5 group-hover:scale-110 transition-transform" />
+                <div>
+                  <p className="text-gray-300">hello@trubalancebodywork.com</p>
+                  <p className="text-gray-400 text-sm">We respond within 24 hours</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3 group">
+                <Phone className="w-5 h-5 text-emerald-400 mt-0.5 group-hover:scale-110 transition-transform" />
+                <div>
+                  <p className="text-gray-300">(555) 123-4567</p>
+                  <p className="text-gray-400 text-sm">Call or text for appointments</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3 group">
+                <MapPin className="w-5 h-5 text-emerald-400 mt-0.5 group-hover:scale-110 transition-transform" />
+                <div>
+                  <p className="text-gray-300">
+                    123 Healing Way<br />
+                    Springfield, ST 12345
+                  </p>
+                  <p className="text-gray-400 text-sm">By appointment only</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
+
+        <Separator className="bg-white/20 mb-8" />
+
+        {/* Legal Links Section */}
+        <div className="mb-8">
+          <h3 className="text-lg font-medium mb-4 text-emerald-400">Information & Policies</h3>
+          <div className="flex flex-wrap gap-6">
+            {legalLinks.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => onSectionChange(link.id)}
+                className="flex items-center space-x-2 text-gray-300 hover:text-emerald-400 transition-colors duration-300 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-white/10"
+              >
+                {link.icon}
+                <span>{link.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <Separator className="bg-white/20 mb-8" />
+
+        {/* Bottom Footer */}
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="text-gray-400">
+            © 2025 TruBalance Bodywork. All rights reserved.
+          </div>
+          
+          <div className="flex items-center space-x-2 text-gray-400">
+            <span>Made with</span>
+            <Heart className="w-4 h-4 text-emerald-400 animate-pulse" />
+            <span>for healing and wellness</span>
+          </div>
+        </div>
+
       </div>
     </footer>
   )
