@@ -10,7 +10,6 @@ import { withLDProvider } from "launchdarkly-react-client-sdk"
 import { About } from './pages/About'
 import { Footer } from '@/components/ui/navigation/footer'
 import "./index.css"
-import "./App.css"
 import { Services } from './pages/Services'
 import { Contact } from './pages/Contact'
 import Resources from "@/pages/Resources"

@@ -1,5 +1,4 @@
-@theme {
-  --color-*: initial;
+:root {
   --color-rose-100: #ECD7C8;
   --color-rose-200: #FDD3D0;
   --color-rose-300: #FCB3AD;
@@ -80,7 +79,7 @@
   --color-lavender-800: #5e4684;
   --color-lavender-900: #43315e;
   --color-lavender-1000: #302343;
-  --color-white: #FFF;
+  --color-white: #fff;
   --color-black: #000;
   --color-contrast: #FFF;
   --color-stone-50: #f6f5f7;

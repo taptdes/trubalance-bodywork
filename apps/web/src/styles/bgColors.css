@@ -1,33 +1,4 @@
-@import '@/styles/base/colors.css';
-
-:root {
-  --bg-primary: var(--colors-sage-400, #8DC757);
-  --bg-primary-light: var(--colors-sage-200, #C0ea9a);
-  --bg-primary-dark: var(--colors-sage-700, #559B61);
-  --bg-secondary: var(--colors-sky-900, #33346D);
-  --bg-secondary-light: var(--colors-sky-400, #A2AEBA);
-  --bg-secondary-dark: var(--colors-sky-1000, #353744);
-  --bg-accent: var(--colors-lavender-400, #a589ce);
-  --bg-accent-light: var(--colors-lavender-200, #d5b4ee);
-  --bg-accent-dark: var(--colors-lavender-800, #5e4684);
-  --bg-success: var(--colors-mint-700, #3ecb73);
-  --bg-success-light: var(--colors-mint-200, #c4feca);
-  --bg-success-dark: var(--colors-mint-800, #3da364);
-  --bg-warning: var(--colors-amber-600, #f66e05);
-  --bg-warning-light: var(--colors-amber-200, #ffc088);
-  --bg-warning-dark: var(--colors-amber-800, #cf5c27);
-  --bg-error: var(--colors-rose-600, #E11D48);
-  --bg-error-light: var(--colors-rose-200, #FDD3D0);
-  --bg-error-dark: var(--colors-rose-800, #970D32);
-  --bg-info: var(--colors-sky-500, #8D99A4);
-  --bg-info-light: var(--colors-sky-200, #D8DDE4);
-  --bg-info-dark: var(--colors-sky-800, #525B71);
-  --bg-default: var(--color-white);
-  --bg-content: var(--color-stone-100);
-  --bg-body: var(--color-stone-400);
-  --bg-subtle: var(--color-stone-50);
-  --bg-disabled: var(--color-stone-200);
-}
+@import "./colors.css";
 
 @layer utilities {
   .bg-default { background-color: var(--color-white); }

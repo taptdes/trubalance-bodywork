@@ -1,4 +1,6 @@
-@theme inline {
+@import '@/styles/base/colors.css';
+
+:root {
   --border-primary: var(--colors-sage-400, #8DC757);
   --border-primary-light: var(--colors-sage-200, #C0ea9a);
   --border-primary-dark: var(--colors-sage-700, #559B61);
@@ -33,4 +35,38 @@
   --border-body: var(--color-stone-100);
   --border-subtle: var(--color-stone-200);
   --border-disabled: var(--color-stone-200);
+}
+
+@layer utilities {
+  .border-default { border-color: var(--color-neutral-400); }
+  .border-subtle { border-color: var(--color-neutral-300); }
+  .border-disabled { border-color: var(--color-neutral-200); }
+
+  .border-primary { border-color: var(--color-primary); }
+  .border-primary-light { border-color: var(--color-primary-light); }
+  .border-primary-dark { border-color: var(--color-primary-dark); }
+
+  .border-secondary { border-color: var(--color-secondary); }
+  .border-secondary-light { border-color: var(--color-secondary-light); }
+  .border-secondary-dark { border-color: var(--color-secondary-dark); }
+
+  .border-accent { border-color: var(--color-accent); }
+  .border-accent-light { border-color: var(--color-accent-light); }
+  .border-accent-dark { border-color: var(--color-accent-dark); }
+
+  .border-success { border-color: var(--color-success); }
+  .border-success-light { border-color: var(--color-success-light); }
+  .border-success-dark { border-color: var(--color-success-dark); }
+
+  .border-warning { border-color: var(--color-warning); }
+  .border-warning-light { border-color: var(--color-warning-light); }
+  .border-warning-dark { border-color: var(--color-warning-dark); }
+
+  .border-error { border-color: var(--color-error); }
+  .border-error-light { border-color: var(--color-error-light); }
+  .border-error-dark { border-color: var(--color-error-dark); }
+
+  .border-info { border-color: var(--color-info); }
+  .border-info-light { border-color: var(--color-info-light); }
+  .border-info-dark { border-color: var(--color-info-dark); }
 }

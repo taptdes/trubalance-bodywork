@@ -1,4 +1,4 @@
-@theme inline {
+:root {
   --text-primary: var(--colors-sage-400, #8DC757);
   --text-primary-light: var(--colors-sage-200, #C0EA9A);
   --text-primary-dark: var(--colors-sage-700, #559B61);
