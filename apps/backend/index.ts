@@ -65,6 +65,7 @@ app.post("/contact", async (req: Request, res: Response) => {
 })
 
 app.use("/images", express.static(path.join(__dirname, "assets/images")))
+app.get("/", (req, res) => res.send("🚀 Backend is running"))
 
 // Start server
 const PORT = process.env.BACKEND_PORT || 3000
