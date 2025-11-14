@@ -64,7 +64,13 @@ app.post("/contact", async (req: Request, res: Response) => {
   res.json({ message: "Success", id: docRef.id })
 })
 
-app.use("/images", express.static(path.join(__dirname, "assets/images")))
+// Serve static images (adjust path depending on your build)
+app.use("/images", express.static(path.join(__dirname, "../assets/images")))
+
+// Test endpoint
+app.get("/test-image", (req, res) => {
+  res.sendFile(path.join(__dirname, "../assets/images/services_swedish.webp"))
+})
 app.get("/", (req, res) => res.send("🚀 Backend is running"))
 
 // Start server
