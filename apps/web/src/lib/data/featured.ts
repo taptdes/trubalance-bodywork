@@ -1,4 +1,8 @@
-const backendUrl = import.meta.env.VITE_BACKEND_URL
+const galleryImages = [
+  { src: `${import.meta.env.VITE_API_URL}/images/services_swedish.webp`, type: "image" as const, alt: "Waxing" },
+  { src: `${import.meta.env.VITE_API_URL}/images/services_clothed.webp`, type: "image" as const, alt: "Film still" },
+  { src: `${import.meta.env.VITE_API_URL}/images/services_oil.webp`, type: "image" as const, alt: "Nails" },
+]
 
 export interface Service {
   title: string
@@ -9,31 +13,15 @@ export interface Service {
   featured: boolean
 }
 
-export const featured: Service[] = [
-  {
-    title: "Therapeutic Massage",
-    description: "Deep tissue and Swedish massage techniques for physical healing and relaxation",
-    image: `${backendUrl}/images/services_swedish.webp`,
-    price: "$50-125",
-    duration: "30 - 90 min",
-    featured: true,
-  },
-  {
-    title: "Reiki Energy Healing",
-    description: "Gentle energy work to restore balance and promote deep healing",
-    image: `${backendUrl}/images/services_reiki.webp`,
-    price: "$95",
-    duration: "60 min",
-    featured: false,
-  },
-  {
-    title: "Trauma-Informed Care",
-    description: "Safe, compassionate bodywork that honors your healing process",
-    image: `${backendUrl}/images/services_clothed.webp`,
-    price: "$95",
-    duration: "60 min",
-    featured: false,
-  },
-]
-
- 
+export const featured: Service[] = galleryImages.map((img, i) => ({
+  title: ["Therapeutic Massage", "Reiki Energy Healing", "Trauma-Informed Care"][i],
+  description: [
+    "Deep tissue and Swedish massage techniques for physical healing and relaxation",
+    "Gentle energy work to restore balance and promote deep healing",
+    "Safe, compassionate bodywork that honors your healing process",
+  ][i],
+  image: img.src,
+  price: ["$50-125", "$95", "$95"][i],
+  duration: ["30 - 90 min", "60 min", "60 min"][i],
+  featured: i === 0,
+}))
