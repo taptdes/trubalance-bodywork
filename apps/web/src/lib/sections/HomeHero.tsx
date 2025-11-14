@@ -25,7 +25,6 @@ const heroImages = {
   sm: bgImgSM,
     md: bgImgMD,
   lg: bgImgLG
-
 }
 */}
 
@@ -59,10 +58,10 @@ export function HomeHero({ onNavigate }: HomeHeroProps) {
    const heroY = useTransform(scrollY, [0, 300], [0, -300]) // move up 100px over first 300px scroll
 const heroOpacity = useTransform(scrollY, [0, 300], [1, 0])
     useEffect(() => setMounted(true), [])
-  
+
     if (!mounted) return null
-  
-  
+
+
   return (
     <Hero fullHeight="screen">
       {/* HeroGallery behind content */}
@@ -70,8 +69,8 @@ const heroOpacity = useTransform(scrollY, [0, 300], [1, 0])
 
       {/* Central content */}
       <motion.div className="relative z-30 inset-y-0 text-center max-w-3xl mx-auto px-6" style={{ opacity: heroOpacity, y: heroY }}>
-        <div className="absolute inset-0 bg-white/90 backdrop-blur-md rounded-[21px] -mx-4 -my-8"></div>
-        <div className="relative z-40 py-10 px-12">
+        <div className="absolute inset-0 bg-white/90 backdrop-blur-md h-screen md:h-auto rounded-[21px] -mx-4 -my-24 md:-my-8"></div>
+        <div className="relative z-40 py-20 md:py-10 px-12">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-header mb-1">
             Your Wellness Journey
           </h1>
@@ -107,7 +106,7 @@ const heroOpacity = useTransform(scrollY, [0, 300], [1, 0])
             </motion.div>
           </div>
         </motion.div>
-      
+
     </Hero>
 
   )

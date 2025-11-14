@@ -21,6 +21,71 @@ trubalance-bodywork/
 
 ## 🛠 Setup & Development
 
+### 0. Install pnpm (If Not Already Installed)
+
+This project uses pnpm as the package manager.
+
+Install via Corepack (Recommended)
+
+Node 16.13+ includes Corepack, which can enable pnpm automatically:
+```
+corepack enable
+corepack prepare pnpm@latest --activate
+```
+
+#### Or Install pnpm Globally
+
+If you prefer a global install:
+```
+npm install -g pnpm
+```
+
+Verify installation
+```
+pnpm -v
+```
+
+### 1. Download the project
+
+You can install the project in one of two ways:
+
+#### Option A — Download ZIP (No Git Required)
+	1.	Visit the GitHub repository.
+	2.	Click Code → Download ZIP.
+	3.	Extract the ZIP anywhere on your machine.
+
+#### Option B — Clone via SSH (Recommended)
+
+Make sure your SSH key is added to GitHub, then run:
+```
+git clone git@github.com:YOUR-USERNAME/YOUR-REPO.git
+```
+
+### 2. Add environment files
+
+Retrieve the required environment files from 1Password.
+
+You will need to mount all three:
+	•	.env — Development
+	•	.env.staging — Staging
+	•	.env.production — Production
+
+Place each file inside the appropriate project folder (typically / or /apps/<project> depending on your structure).
+
+### 3. (If You Downloaded the ZIP) Connect to Git
+
+If you installed the project via ZIP and want Git version control:
+
+```
+git init
+git remote add origin git@github.com:YOUR-USERNAME/YOUR-REPO.git
+```
+
+(Optional) Pull the latest main branch:
+```
+git pull origin main
+```
+
 ### Install dependencies
 
 From the monorepo root:
@@ -41,21 +106,6 @@ Open your browser to [http://localhost:3000](http://localhost:3000) (or the port
 
 ---
 
-## Environment Variables
-
-Create an `.env` file in the root of the repo with the following:
-
-```env
-VITE_PUBLIC_SANITY_PROJECT_ID=
-VITE_PUBLIC_SANITY_DATASET=
-VITE_PUBLIC_SANITY_API_VERSION=
-VITE_PUBLIC_SANITY_PREVIEW_TOKEN=
-```
-
-Replace the placeholders with your actual credentials and URLs.
-These credentials connect the site to the headless Sanity CMS (read-only access).
-
----
 
 ## Git & Deployment
 
