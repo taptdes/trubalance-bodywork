@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client"
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
 // import { Home } from "./pages/HomeNew";
 import { Home } from "./pages/Home"
-import { SanityPage } from "@/lib/cms/components/PageLayout"
 import { Navigation } from "@/components/ui/navigation"
 import type { PageType } from "@/components/ui/navigation/types"
 import { withLDProvider } from "launchdarkly-react-client-sdk"
@@ -37,7 +36,6 @@ function App() {
    <Route path="/resources" element={<Resources />} />
         <Route path="/location" element={<ClinicInfo />} />
         {/* <Route path="/" element={<Home onBookNow={() => { }} onSectionChange={() => { }} />} />     */}    
-          <Route path="/:slug" element={<SanityPage />} />
       </Routes>
       <Footer onSectionChange={() => {}} />
     </>
