@@ -75,10 +75,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       await axios.post("/auth/signup", data)
       await signIn(data.email, data.password)
-    } catch (err) {
-      console.error("Sign up failed:", err)
-      throw err
-    }
+    } catch (err: any) {
+  console.error("Sign up failed:", err?.response?.data || err)
+  throw err
+}
   }
 
   const signOut = () => {
