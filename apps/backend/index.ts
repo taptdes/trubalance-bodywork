@@ -3,6 +3,14 @@ import cors from "cors"
 import { db, admin, bucket } from "./firebase.js"
 import { RecaptchaEnterpriseServiceClient } from "@google-cloud/recaptcha-enterprise"
 import { verifyRecaptcha } from "./src/utils/verifyRecaptcha.js"
+import {
+  signUp,
+  signIn,
+  getProfile,
+  updateProfile,
+  deleteUser,
+} from "./src/lib/firebase/auth.js"
+import { authenticate } from "./src/utils/authenticate.js"
 
 const app = express()
 
@@ -23,8 +31,16 @@ app.use(cors({
 
 app.use(express.json())
 
-// --- Initialize reCAPTCHA client ---
 const recaptchaClient = new RecaptchaEnterpriseServiceClient()
+
+// --- Public Auth routes ---
+app.post("/auth/signup", signUp)
+app.post("/auth/signin", signIn)
+
+// --- Protected routes using authenticate middleware ---
+app.get("/auth/profile/:uid", authenticate, getProfile)
+app.patch("/auth/profile/:uid", authenticate, updateProfile)
+app.delete("/auth/profile/:uid", authenticate, deleteUser)
 
 // --- Contact route ---
 app.post("/contact", async (req: Request, res: Response) => {
