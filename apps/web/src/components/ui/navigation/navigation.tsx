@@ -6,8 +6,13 @@ import type { NavigationProps } from "./types"
 import { Icon } from "@/components/ui/Icon/Icon"
 import logoprimary from "/logo-primary.svg"
 import { useAuth } from "@/lib/context/authContext"
+import AuthFlow from "@/lib/blocks/AuthFlow"
+import { Dialog, DialogContent } from "@/components/ui/dialog"
+
 
 export function Navigation({ onNavigate }: NavigationProps) {
+  const [isSignInOpen, setIsSignInOpen] = useState(false)
+
   const location = useLocation()
   // const isHomePage = location.pathname === "/"
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -76,40 +81,45 @@ export function Navigation({ onNavigate }: NavigationProps) {
                 {user ? (
                   // Signed in view
                   <>
-                   <button
-                  onClick={() => onNavigate("book")}
-                  className=
-                  "px-4 py-2 rounded-lg transition-all duration-500 font-semibold backdrop-blur-sm shadow-md btn-gradient-primary text-white hover:btn-gradient-primary"
+                    <button
+                      onClick={() => onNavigate("book")}
+                      className=
+                      "px-4 py-2 rounded-lg transition-all duration-500 font-semibold backdrop-blur-sm shadow-md btn-gradient-primary text-white hover:btn-gradient-primary"
 
-                >
-                  Book Now
-                </button>
-                <button
+                    >
+                      Book Now
+                    </button>
+                    <button
                       onClick={() => onNavigate("profile")}
                       className="px-4 py-2 rounded-lg border transition-all duration-500 font-semibold border-primary text-primary hover:bg-primary hover:text-white"
                     >
                       Profile
                     </button>
-                    </>
+                  </>
                 ) : (
                   // Anonymous
                   <>
-                <button
-                  onClick={() => onNavigate("signin")}
-                  className=
-                  "px-4 py-2 rounded-lg border transition-all duration-500 font-semibold border-primary text-primary hover:bg-primary hover:text-white"
-                >
-                  Sign In
-                </button>
-                <button
-                  onClick={() => onNavigate("book")}
-                  className=
-                  "px-4 py-2 rounded-lg transition-all duration-500 font-semibold backdrop-blur-sm shadow-md btn-gradient-primary text-white hover:btn-gradient-primary"
+                    <button
+                      onClick={() => setIsSignInOpen(true)}
+                      className=
+                      "px-4 py-2 rounded-lg border transition-all duration-500 font-semibold border-primary text-primary hover:bg-primary hover:text-white"
+                    >
+                      Sign In
+                    </button>
+                    <Dialog open={isSignInOpen} onOpenChange={setIsSignInOpen}>
+                      <DialogContent>
+                        <AuthFlow onClose={() => setIsSignInOpen(false)} />
+                      </DialogContent>
+                    </Dialog>
+                    <button
+                      onClick={() => onNavigate("book")}
+                      className=
+                      "px-4 py-2 rounded-lg transition-all duration-500 font-semibold backdrop-blur-sm shadow-md btn-gradient-primary text-white hover:btn-gradient-primary"
 
-                >
-                  Book Now
-                </button>
-                </>
+                    >
+                      Book Now
+                    </button>
+                  </>
                 )}
               </div>
 
@@ -120,7 +130,7 @@ export function Navigation({ onNavigate }: NavigationProps) {
                 <button
                   onClick={toggleMobileMenu}
                   className=
-                    "flex lg:hidden p-2 items-center text-white justify-center rounded-md shadow-md transition-all font-semibold text-sm uppercase bg-primary hover:bg-primary-dark"
+                  "flex lg:hidden p-2 items-center text-white justify-center rounded-md shadow-md transition-all font-semibold text-sm uppercase bg-primary hover:bg-primary-dark"
                   aria-label="Toggle mobile menu"
                 >
                   <Icon name={isMobileMenuOpen ? "close" : "menu"} className="w-6 h-6" />
