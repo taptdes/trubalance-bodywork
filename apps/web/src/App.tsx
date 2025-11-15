@@ -30,14 +30,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home onNavigate={handleNavigate} />} />
         <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={<Contact />} />
 
-                <Route path="/services" element={<Services onBookNow={() => { }} />} />
-   <Route path="/resources" element={<Resources />} />
+        <Route path="/services" element={<Services onBookNow={() => { }} />} />
+        <Route path="/resources" element={<Resources />} />
         <Route path="/location" element={<ClinicInfo />} />
-        {/* <Route path="/" element={<Home onBookNow={() => { }} onSectionChange={() => { }} />} />     */}    
+        {/* <Route path="/" element={<Home onBookNow={() => { }} onSectionChange={() => { }} />} />     */}
       </Routes>
-      <Footer onSectionChange={() => {}} />
+      <Footer onSectionChange={() => { }} />
     </>
   )
 }
