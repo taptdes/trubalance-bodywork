@@ -8,6 +8,7 @@ export type PageType =
   | 'booking'
   | 'book'
   | 'signin'
+  | 'profile'
   | 'contact'
   | 'location'
   | 'resources'

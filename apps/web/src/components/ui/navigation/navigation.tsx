@@ -5,11 +5,14 @@ import { navitems } from "./constants"
 import type { NavigationProps } from "./types"
 import { Icon } from "@/components/ui/Icon/Icon"
 import logoprimary from "/logo-primary.svg"
+import { useAuth } from "@/lib/context/authContext"
 
 export function Navigation({ onNavigate }: NavigationProps) {
   const location = useLocation()
   // const isHomePage = location.pathname === "/"
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const { user } = useAuth()
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev)
@@ -70,6 +73,27 @@ export function Navigation({ onNavigate }: NavigationProps) {
 
               {/* Desktop Buttons */}
               <div className="hidden lg:flex items-center gap-4">
+                {user ? (
+                  // Signed in view
+                  <>
+                   <button
+                  onClick={() => onNavigate("book")}
+                  className=
+                  "px-4 py-2 rounded-lg transition-all duration-500 font-semibold backdrop-blur-sm shadow-md btn-gradient-primary text-white hover:btn-gradient-primary"
+
+                >
+                  Book Now
+                </button>
+                <button
+                      onClick={() => onNavigate("profile")}
+                      className="px-4 py-2 rounded-lg border transition-all duration-500 font-semibold border-primary text-primary hover:bg-primary hover:text-white"
+                    >
+                      Profile
+                    </button>
+                    </>
+                ) : (
+                  // Anonymous
+                  <>
                 <button
                   onClick={() => onNavigate("signin")}
                   className=
@@ -85,6 +109,8 @@ export function Navigation({ onNavigate }: NavigationProps) {
                 >
                   Book Now
                 </button>
+                </>
+                )}
               </div>
 
               {/*  Mobile Menu Toggle Button Wrapper */}

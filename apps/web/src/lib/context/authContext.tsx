@@ -1,0 +1,97 @@
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
+import axios from "axios"
+
+export interface UserProfile {
+  uid: string;
+  email: string;
+  firstName?: string;
+  lastName?: string;
+  phone?: string;
+  dateOfBirth?: string;
+  address?: string;
+  photoURL?: string;
+}
+
+interface AuthContextType {
+  user: UserProfile | null;
+  loading: boolean;
+  isAuthenticated: boolean;
+  signIn: (email: string, password: string) => Promise<void>;
+  signUp: (data: { email: string; password: string; firstName?: string; lastName?: string }) => Promise<void>;
+  signOut: () => void;
+  fetchUser: () => Promise<void>;
+}
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined)
+
+export function AuthProvider({ children }: { children: ReactNode }) {
+  const [user, setUser] = useState<UserProfile | null>(null)
+  const [loading, setLoading] = useState(true)
+
+  // Load user from localStorage if token exists
+  useEffect(() => {
+    const token = localStorage.getItem("authToken")
+    if (token) {
+      fetchUser().finally(() => setLoading(false))
+    } else {
+      setLoading(false)
+    }
+  }, [])
+
+  const fetchUser = async () => {
+    try {
+      const token = localStorage.getItem("authToken")
+      if (!token) return
+
+      // The backend must have an endpoint to get current user by token
+      const res = await axios.get("/auth/profile/me", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+
+      setUser(res.data.user)
+    } catch (err) {
+      console.error("Failed to fetch user:", err)
+      setUser(null)
+    }
+  }
+
+  const signIn = async (email: string, password: string) => {
+    try {
+      const res = await axios.post("/auth/signin", { email, password })
+      const { token } = res.data
+
+      localStorage.setItem("authToken", token)
+      await fetchUser()
+    } catch (err) {
+      console.error("Sign in failed:", err)
+      throw err
+    }
+  }
+
+  const signUp = async (data: { email: string; password: string; firstName?: string; lastName?: string }) => {
+    try {
+      await axios.post("/auth/signup", data)
+      await signIn(data.email, data.password)
+    } catch (err) {
+      console.error("Sign up failed:", err)
+      throw err
+    }
+  }
+
+  const signOut = () => {
+    localStorage.removeItem("authToken")
+    setUser(null)
+  }
+
+  return (
+    <AuthContext.Provider value={{ user, loading, isAuthenticated: !!user, signIn, signUp, signOut, fetchUser }}>
+      {children}
+    </AuthContext.Provider>
+  )
+}
+
+export function useAuth() {
+  const context = useContext(AuthContext)
+  if (!context) throw new Error("useAuth must be used within AuthProvider")
+  return context
+}
