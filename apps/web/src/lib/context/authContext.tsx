@@ -57,8 +57,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signIn = async (email: string, password: string) => {
     try {
-      const res = await axios.post("/auth/signin", { email, password })
-      const { token } = res.data
+      const uidRes = await axios.post("/auth/signin-with-password", { email, password })
+      const { uid } = uidRes.data
+
+      const tokenRes = await axios.post("/auth/signin", { uid })
+      const { token } = tokenRes.data
 
       localStorage.setItem("authToken", token)
       await fetchUser()

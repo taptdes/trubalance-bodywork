@@ -6,6 +6,7 @@ import { verifyRecaptcha } from "./src/utils/verifyRecaptcha.js"
 import {
   signUp,
   signIn,
+  signInWithPassword,
   getProfile,
   updateProfile,
   deleteUser,
@@ -36,6 +37,7 @@ const recaptchaClient = new RecaptchaEnterpriseServiceClient()
 // --- Public Auth routes ---
 app.post("/auth/signup", signUp)
 app.post("/auth/signin", signIn)
+app.post("/auth/signin-with-password", signInWithPassword)
 
 // --- Protected routes using authenticate middleware ---
 app.get("/auth/profile/:uid", authenticate, getProfile)
