@@ -29,8 +29,18 @@ async function uploadImage(localPath: string, storagePath: string) {
 }
 
 async function uploadAllImages() {
-  const imagesDir = path.join(__dirname, "../assets/images")
+  // Changed from "../assets/images" to "./assets/images"
+  const imagesDir = path.join(__dirname, "assets/images")
+  
+  // Check if directory exists
+  if (!fs.existsSync(imagesDir)) {
+    console.error(`❌ Images directory not found: ${imagesDir}`)
+    console.error(`   Current directory: ${__dirname}`)
+    process.exit(1)
+  }
+  
   const files = fs.readdirSync(imagesDir)
+  console.log(`📁 Found ${files.length} files in ${imagesDir}`)
   
   for (const file of files) {
     if (file.match(/\.(jpg|jpeg|png|webp|gif)$/i)) {
