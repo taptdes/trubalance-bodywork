@@ -7,11 +7,11 @@
   .bg-subtle { background-color: var(--color-neutral-50); }
   .bg-disabled { background-color: var(--color-neutral-100); }
 
-  .bg-primary { background-color: var(--color-primary); }
+  .bg-primary { background-color: var(--color-primary, #8DC757); }
   .bg-primary-light { background-color: var(--color-primary-light); }
   .bg-primary-dark { background-color: var(--color-primary-dark); }
 
-  .bg-secondary { background-color: var(--color-secondary); }
+  .bg-secondary { background-color: var(--color-secondary, #33346D); }
   .bg-secondary-light { background-color: var(--color-secondary-light); }
   .bg-secondary-dark { background-color: var(--color-secondary-dark); }
 
@@ -27,7 +27,7 @@
   .bg-warning-light { background-color: var(--color-warning-light); }
   .bg-warning-dark { background-color: var(--color-warning-dark); }
 
-  .bg-error { background-color: var(--color-error); }
+  .bg-error { background-color: var(--color-error, #E11D48); }
   .bg-error-light { background-color: var(--color-error-light); }
   .bg-error-dark { background-color: var(--color-error-dark); }
 

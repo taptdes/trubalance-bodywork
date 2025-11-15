@@ -1,13 +1,12 @@
 import type { StoryObj } from '@storybook/react-vite'
 import { fn } from 'storybook/test'
 
-import { Button } from './button'
-import type { ButtonProps } from './types'
-import { Icon } from '@/components/ui/Icon/Icon'
+import { Input } from './input'
+import type { EnhancedInputProps } from './types'
 
 const meta = {
-  title: 'Components/Button',
-  component: Button,
+  title: 'Components/Input',
+  component: Input,
   parameter: {
     layout: 'centered',
   },
@@ -37,13 +36,10 @@ const meta = {
     size: 'md',
     color: 'primary',
     variant: 'filled',
-    loading: false,
     disabled: false,
-    linkStyle: false,
-    icon: false,
     children: 'Button',
     onClick: fn()
-  } satisfies ButtonProps,
+  } satisfies EnhancedInputProps,
 }
 
 export default meta
@@ -57,12 +53,7 @@ export const Default: Story = {
   },
 }
 
-export const Loading: Story = {
-  args: {
-    loading: true,
-    children: 'Loading…',
-  },
-}
+
 
 export const Disabled: Story = {
   args: {
@@ -71,10 +62,4 @@ export const Disabled: Story = {
   },
 }
 
-export const IconButton: Story = {
-  args: {
-    icon: true,
-    children: <Icon name="phone" size="md" />,
-    'aria-label': 'phone',
-  },
-}
+

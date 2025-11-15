@@ -1,1 +1,5 @@
 export { Button } from "./button"
+export { IconButton } from "./iconButton"
+export type { ButtonProps, IconButtonProps } from "./types"
+export type { ButtonSize, ButtonColor, ButtonVariant, IconButtonSize } from "./constants"
+export { buttonVariants, sizeClasses } from "./styles"

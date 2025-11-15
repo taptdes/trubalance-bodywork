@@ -27,9 +27,12 @@
   .text-warning-light { color: var(--color-warning-light); }
   .text-warning-dark { color: var(--color-warning-dark); }
 
-  .text-error { color: var(--color-error); }
+  .text-error { color: var(--color-error, #c92530); }
   .text-error-light { color: var(--color-error-light); }
   .text-error-dark { color: var(--color-error-dark); }
+
+    .text-error\/50 { color: var(--color-error, rgb(201 37 48 / 50%)); }
+
 
   .text-info { color: var(--color-info); }
   .text-info-light { color: var(--color-info-light); }

@@ -116,13 +116,13 @@ export default function AuthFlow({ onClose, defaultTab = 'signin' }: AuthFlowPro
             <TabsContent value="signin" className="space-y-4">
               <form onSubmit={handleSignIn} className="space-y-4">
                 <div className="relative">
-                  <Label htmlFor="signin-email">Email</Label>
-                  <Mail className="absolute left-3 top-9 h-4 w-4 text-gray-400" />
+                  <Label className="pb-2" htmlFor="signin-email">Email</Label>
+                  <Mail className="absolute left-3 top-9 h-4 w-4 text-neutral-400" />
                   <Input id="signin-email" type="email" value={signInEmail} onChange={(e) => setSignInEmail(e.target.value)} className="pl-10" required />
                 </div>
                 <div className="relative">
-                  <Label htmlFor="signin-password">Password</Label>
-                  <Lock className="absolute left-3 top-9 h-4 w-4 text-gray-400" />
+                  <Label className="pb-2" htmlFor="signin-password">Password</Label>
+                  <Lock className="absolute left-3 top-9 h-4 w-4 text-neutral-400" />
                   <Input
                     id="signin-password"
                     type={showPassword ? 'text' : 'password'}
@@ -151,19 +151,19 @@ export default function AuthFlow({ onClose, defaultTab = 'signin' }: AuthFlowPro
               <form onSubmit={handleSignUp} className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="relative">
-                    <Label htmlFor="firstName">First Name</Label>
-                    <User className="absolute left-3 top-9 h-4 w-4 text-gray-400" />
+                    <Label className="pb-2" htmlFor="firstName">First Name</Label>
+                    <User className="absolute left-3 top-9 h-4 w-4 text-neutral-400" />
                     <Input id="firstName" value={signUpData.firstName} onChange={(e) => setSignUpData({ ...signUpData, firstName: e.target.value })} className="pl-10" required />
                   </div>
                   <div className="relative">
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <User className="absolute left-3 top-9 h-4 w-4 text-gray-400" />
+                    <Label className="pb-2" htmlFor="lastName">Last Name</Label>
+                    <User className="absolute left-3 top-9 h-4 w-4 text-neutral-400" />
                     <Input id="lastName" value={signUpData.lastName} onChange={(e) => setSignUpData({ ...signUpData, lastName: e.target.value })} className="pl-10" required />
                   </div>
                 </div>
                 <div className="relative">
-                  <Label htmlFor="signup-email">Email</Label>
-                  <Mail className="absolute left-3 top-9 h-4 w-4 text-gray-400" />
+                  <Label className="pb-2" htmlFor="signup-email">Email</Label>
+                  <Mail className="absolute left-3 top-9 h-4 w-4 text-neutral-400" />
                   <Input id="signup-email" type="email" value={signUpData.email} onChange={(e) => setSignUpData({ ...signUpData, email: e.target.value })} className="pl-10" required />
                 </div>
                 {/* phone, dateOfBirth, password, confirmPassword, terms... */}
@@ -175,8 +175,8 @@ export default function AuthFlow({ onClose, defaultTab = 'signin' }: AuthFlowPro
       ) : (
         <form onSubmit={handleForgotPassword} className="space-y-4">
           <div className="relative">
-            <Label htmlFor="reset-email">Email</Label>
-            <Mail className="absolute left-3 top-9 h-4 w-4 text-gray-400" />
+            <Label className="pb-2" htmlFor="reset-email">Email</Label>
+            <Mail className="absolute left-3 top-9 h-4 w-4 text-neutral-400" />
             <Input id="reset-email" type="email" value={resetEmail} onChange={(e) => setResetEmail(e.target.value)} className="pl-10" required />
           </div>
           <div className="flex gap-3">

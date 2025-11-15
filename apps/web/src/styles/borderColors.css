@@ -28,6 +28,7 @@
   .border-error { border-color: var(--color-error); }
   .border-error-light { border-color: var(--color-error-light); }
   .border-error-dark { border-color: var(--color-error-dark); }
+  .border-error\/50 { border-color: var(--color-error, rgb(201 37 48 / 50%)); }
 
   .border-info { border-color: var(--color-info); }
   .border-info-light { border-color: var(--color-info-light); }

@@ -25,7 +25,7 @@ export const Input = React.forwardRef<HTMLInputElement, EnhancedInputProps>(
       <div className="flex flex-col gap-2 w-full">
         {label && <label className="text-sm font-medium">{label}</label>}
         <div className="relative">
-          {leftIcon && <span className="text-subtle absolute inset-y-0 left-3 flex items-center">{leftIcon}</span>}
+          {leftIcon && <span className="text-default absolute inset-y-0 left-3 flex items-center">{leftIcon}</span>}
           <input
             ref={ref}
             aria-invalid={error}
@@ -34,15 +34,15 @@ export const Input = React.forwardRef<HTMLInputElement, EnhancedInputProps>(
               inputVariants({ size, variant }),
               leftIcon && "pl-10",
               rightIcon && "pr-10",
-              error && "border-destructive focus-visible:border-destructive focus-visible:ring-destructive/50",
+              error && "border-error focus-visible:border-error focus-visible:ring-error",
               className
             )}
             {...props}
           />
-          {rightIcon && <span className="text-subtle absolute inset-y-0 right-3 flex items-center">{rightIcon}</span>}
+          {rightIcon && <span className="text-default absolute inset-y-0 right-3 flex items-center">{rightIcon}</span>}
         </div>
         {helperText && (
-          <p className={cn("mt-1 text-sm", error ? "text-destructive" : "text-muted-foreground")}>
+          <p className={cn("mt-1 text-sm", error ? "text-error" : "text-neutral-500")}>
             {helperText}
           </p>
         )}
