@@ -1,7 +1,7 @@
 const galleryImages = [
-  { src: `${import.meta.env.VITE_API_URL}/images/services_swedish.webp`, type: "image" as const, alt: "Waxing" },
-  { src: `${import.meta.env.VITE_API_URL}/images/services_clothed.webp`, type: "image" as const, alt: "Film still" },
-  { src: `${import.meta.env.VITE_API_URL}/images/services_oil.webp`, type: "image" as const, alt: "Nails" },
+  { src: `${import.meta.env.VITE_BACKEND_URL}/images/services_swedish.webp`, type: "image" as const, alt: "Waxing" },
+  { src: `${import.meta.env.VITE_BACKEND_URL}/images/services_clothed.webp`, type: "image" as const, alt: "Film still" },
+  { src: `${import.meta.env.VITE_BACKEND_URL}/images/services_oil.webp`, type: "image" as const, alt: "Nails" },
 ]
 
 export interface Service {
