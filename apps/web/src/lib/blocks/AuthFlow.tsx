@@ -166,7 +166,44 @@ export default function AuthFlow({ onClose, defaultTab = 'signin' }: AuthFlowPro
                   <Mail className="absolute left-3 top-9 h-4 w-4 text-neutral-400" />
                   <Input id="signup-email" type="email" value={signUpData.email} onChange={(e) => setSignUpData({ ...signUpData, email: e.target.value })} className="pl-10" required />
                 </div>
-                {/* phone, dateOfBirth, password, confirmPassword, terms... */}
+                <div className="relative">
+                  <Label className="pb-2" htmlFor="signup-password">Password</Label>
+                  <Lock className="absolute left-3 top-9 h-4 w-4 text-neutral-400" />
+                  <Input
+                    id="signup-password"
+                    type={showPassword ? 'text' : 'password'}
+                    value={signUpData.password}
+                    onChange={(e) => setSignUpData({ ...signUpData, password: e.target.value })}
+                    className="pl-10 pr-10"
+                    required
+                  />
+                  <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-9 text-gray-400">
+                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  </button>
+                </div>
+
+                <div className="relative">
+                  <Label className="pb-2" htmlFor="signup-confirm-password">Confirm Password</Label>
+                  <Lock className="absolute left-3 top-9 h-4 w-4 text-neutral-400" />
+                  <Input
+                    id="signup-confirm-password"
+                    type="password"
+                    value={signUpData.confirmPassword}
+                    onChange={(e) => setSignUpData({ ...signUpData, confirmPassword: e.target.value })}
+                    className="pl-10"
+                    required
+                  />
+                </div>
+
+                <div className="flex items-center space-x-2 pt-2">
+                  <Checkbox
+                    checked={agreeToTerms}
+                    onCheckedChange={(checked) => setAgreeToTerms(checked as boolean)}
+                  />
+                  <span className="text-sm text-gray-600">
+                    I agree to the <span className="text-primary underline cursor-pointer">terms and conditions</span>
+                  </span>
+                </div>
                 <Button type="submit" className="w-full" disabled={isLoading}>{isLoading ? 'Creating account...' : 'Create Account'}</Button>
               </form>
             </TabsContent>
