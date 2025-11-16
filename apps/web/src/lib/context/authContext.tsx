@@ -23,6 +23,8 @@ interface AuthContextType {
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
+// const API_URL = import.meta.env.VITE_BACKEND_URL || ""
+const API_URL = "https://trubalance-bodywork.onrender.com"
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<UserProfile | null>(null)
@@ -55,31 +57,31 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  const signIn = async (email: string, password: string) => {
-    try {
-      const uidRes = await axios.post("/auth/signin-with-password", { email, password })
-      const { uid } = uidRes.data
+const signIn = async (email: string, password: string) => {
+  try {
+    const uidRes = await axios.post(`${API_URL}/auth/signin-with-password`, { email, password })
+    const { uid } = uidRes.data
 
-      const tokenRes = await axios.post("/auth/signin", { uid })
-      const { token } = tokenRes.data
+    const tokenRes = await axios.post(`${API_URL}/auth/signin`, { uid })
+    const { token } = tokenRes.data
 
-      localStorage.setItem("authToken", token)
-      await fetchUser()
-    } catch (err) {
-      console.error("Sign in failed:", err)
-      throw err
-    }
+    localStorage.setItem("authToken", token)
+    await fetchUser()
+  } catch (err) {
+    console.error("Sign in failed:", err)
+    throw err
   }
-
-  const signUp = async (data: { email: string; password: string; firstName?: string; lastName?: string }) => {
-    try {
-      await axios.post("/auth/signup", data)
-      await signIn(data.email, data.password)
-    } catch (err: any) {
-  console.error("Sign up failed:", err?.response?.data || err)
-  throw err
 }
+
+const signUp = async (data: { email: string; password: string; firstName?: string; lastName?: string }) => {
+  try {
+    await axios.post(`${API_URL}/auth/signup`, data)
+    await signIn(data.email, data.password)
+  } catch (err: any) {
+    console.error("Sign up failed:", err?.response?.data || err)
+    throw err
   }
+}
 
   const signOut = () => {
     localStorage.removeItem("authToken")
