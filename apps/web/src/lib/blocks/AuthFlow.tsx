@@ -16,7 +16,7 @@ interface AuthFlowProps {
 }
 
 export default function AuthFlow({ onClose, defaultTab = 'signin' }: AuthFlowProps) {
-  const { signIn, signUp } = useAuth()
+  const { signIn, signUp, fetchUser } = useAuth()
   const [showPassword, setShowPassword] = useState(false)
   const [showForgotPassword, setShowForgotPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -46,6 +46,7 @@ export default function AuthFlow({ onClose, defaultTab = 'signin' }: AuthFlowPro
     setIsLoading(true)
     try {
       await signIn(signInEmail, signInPassword)
+      await fetchUser()
       toast.success('Successfully signed in!', {
         description: 'Welcome back!',
         duration: 3000
@@ -74,6 +75,7 @@ export default function AuthFlow({ onClose, defaultTab = 'signin' }: AuthFlowPro
     setIsLoading(true)
     try {
       await signUp(signUpData)
+      await fetchUser()
       toast.success('Account created!', { duration: 4000 })
       onClose()
       setSignUpData({ firstName: '', lastName: '', email: '', phone: '', dateOfBirth: '', password: '', confirmPassword: '' })
