@@ -17,7 +17,7 @@ export function Navigation({ onNavigate }: NavigationProps) {
   // const isHomePage = location.pathname === "/"
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  const { user } = useAuth()
+  const { user, isAuthenticated, loading } = useAuth()
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev)
@@ -78,14 +78,12 @@ export function Navigation({ onNavigate }: NavigationProps) {
 
               {/* Desktop Buttons */}
               <div className="hidden lg:flex items-center gap-4">
-                {user ? (
+                {!loading && (isAuthenticated ? (
                   // Signed in view
                   <>
                     <button
                       onClick={() => onNavigate("book")}
-                      className=
-                      "px-4 py-2 rounded-lg transition-all duration-500 font-semibold backdrop-blur-sm shadow-md btn-gradient-primary text-white hover:btn-gradient-primary"
-
+                      className="px-4 py-2 rounded-lg transition-all duration-500 font-semibold backdrop-blur-sm shadow-md btn-gradient-primary text-white hover:btn-gradient-primary"
                     >
                       Book Now
                     </button>
@@ -93,7 +91,7 @@ export function Navigation({ onNavigate }: NavigationProps) {
                       onClick={() => onNavigate("profile")}
                       className="px-4 py-2 rounded-lg border transition-all duration-500 font-semibold border-primary text-primary hover:bg-primary hover:text-white"
                     >
-                      Profile
+                      {user?.firstName || "Profile"}
                     </button>
                   </>
                 ) : (
@@ -101,8 +99,7 @@ export function Navigation({ onNavigate }: NavigationProps) {
                   <>
                     <button
                       onClick={() => setIsSignInOpen(true)}
-                      className=
-                      "px-4 py-2 rounded-lg border transition-all duration-500 font-semibold border-primary text-primary hover:bg-primary hover:text-white"
+                      className="px-4 py-2 rounded-lg border transition-all duration-500 font-semibold border-primary text-primary hover:bg-primary hover:text-white"
                     >
                       Sign In
                     </button>
@@ -113,14 +110,12 @@ export function Navigation({ onNavigate }: NavigationProps) {
                     </Dialog>
                     <button
                       onClick={() => onNavigate("book")}
-                      className=
-                      "px-4 py-2 rounded-lg transition-all duration-500 font-semibold backdrop-blur-sm shadow-md btn-gradient-primary text-white hover:btn-gradient-primary"
-
+                      className="px-4 py-2 rounded-lg transition-all duration-500 font-semibold backdrop-blur-sm shadow-md btn-gradient-primary text-white hover:btn-gradient-primary"
                     >
                       Book Now
                     </button>
                   </>
-                )}
+                ))}
               </div>
 
               {/*  Mobile Menu Toggle Button Wrapper */}
@@ -158,6 +153,42 @@ export function Navigation({ onNavigate }: NavigationProps) {
                 </li>
               ))}
             </ul>
+            {!loading && (isAuthenticated ? (
+              <>
+                <button
+                  onClick={() => { onNavigate("book"); setIsMobileMenuOpen(false) }}
+                  className="mt-6 px-4 py-2 rounded-lg transition-all duration-500 font-semibold backdrop-blur-sm shadow-md btn-gradient-primary text-white hover:btn-gradient-primary"
+                >
+                  Book Now
+                </button>
+                <button
+                  onClick={() => { onNavigate("profile"); setIsMobileMenuOpen(false) }}
+                  className="mt-4 px-4 py-2 rounded-lg border transition-all duration-500 font-semibold border-primary text-primary hover:bg-primary hover:text-white"
+                >
+                  {user?.firstName || "Profile"}
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => setIsSignInOpen(true)}
+                  className="mt-6 px-4 py-2 rounded-lg border transition-all duration-500 font-semibold border-primary text-primary hover:bg-primary hover:text-white"
+                >
+                  Sign In
+                </button>
+                <Dialog open={isSignInOpen} onOpenChange={setIsSignInOpen}>
+                  <DialogContent>
+                    <AuthFlow onClose={() => setIsSignInOpen(false)} />
+                  </DialogContent>
+                </Dialog>
+                <button
+                  onClick={() => { onNavigate("book"); setIsMobileMenuOpen(false) }}
+                  className="mt-4 px-4 py-2 rounded-lg transition-all duration-500 font-semibold backdrop-blur-sm shadow-md btn-gradient-primary text-white hover:btn-gradient-primary"
+                >
+                  Book Now
+                </button>
+              </>
+            ))}
           </div>
         </div>
       )}
