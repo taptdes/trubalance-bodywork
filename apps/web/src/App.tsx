@@ -13,6 +13,7 @@ import { Services } from './pages/Services'
 import { Contact } from './pages/Contact'
 import Resources from "@/pages/Resources"
 import ClinicInfo from "@/pages/Clinic"
+import ProfilePage from "@/pages/Profile"
 
 function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('home')
@@ -35,6 +36,7 @@ function App() {
         <Route path="/services" element={<Services onBookNow={() => { }} />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/location" element={<ClinicInfo />} />
+        <Route path="/profile" element={<ProfilePage />} />
         {/* <Route path="/" element={<Home onBookNow={() => { }} onSectionChange={() => { }} />} />     */}
       </Routes>
       <Footer onSectionChange={() => { }} />
