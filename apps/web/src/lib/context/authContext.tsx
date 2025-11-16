@@ -61,13 +61,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 const signIn = async (email: string, password: string) => {
   try {
     const uidRes = await axios.post(`${API_URL}/auth/signin-with-password`, { email, password })
-    const { uid } = uidRes.data
-
-    const tokenRes = await axios.post(`${API_URL}/auth/signin`, { uid })
-    const { token } = tokenRes.data
+    const { uid, idToken } = uidRes.data
 
     localStorage.setItem("uid", uid)
-    localStorage.setItem("authToken", token)
+    localStorage.setItem("authToken", idToken)
+
     await fetchUser()
   } catch (err) {
     console.error("Sign in failed:", err)

@@ -51,7 +51,7 @@ export async function signInWithPassword(req: Request, res: Response) {
     if (!email || !password) return res.status(400).json({ message: "Email and password required" })
 
     const firebaseRes = await fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + process.env.FIREBASE_API_KEY,
+      `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.FIREBASE_API_KEY}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -65,7 +65,8 @@ export async function signInWithPassword(req: Request, res: Response) {
       return res.status(401).json({ message: data.error?.message || "Invalid credentials" })
     }
 
-    res.json({ uid: data.localId })
+    // Return both UID and ID token
+    res.json({ uid: data.localId, idToken: data.idToken })
   } catch (error: any) {
     console.error("Error signing in with password:", error)
     res.status(500).json({ message: error.message })
