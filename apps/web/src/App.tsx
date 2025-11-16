@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import ReactDOM from "react-dom/client"
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
 // import { Home } from "./pages/HomeNew";
 import { Home } from "./pages/Home"
@@ -57,8 +56,4 @@ const LDApp = withLDProvider({
   </React.StrictMode>
 ))
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <LDApp />
-)
-
-export { App }
+export { App, LDApp }
