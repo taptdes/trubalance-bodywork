@@ -23,8 +23,7 @@ interface AuthContextType {
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
-// const API_URL = import.meta.env.VITE_BACKEND_URL || ""
-const API_URL = "https://trubalance-bodywork.onrender.com"
+const API_URL = import.meta.env.VITE_BACKEND_URL || "https://trubalance-bodywork.onrender.com"
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<UserProfile | null>(null)
@@ -45,8 +44,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const token = localStorage.getItem("authToken")
       if (!token) return
 
-      // The backend must have an endpoint to get current user by token
-      const res = await axios.get("/auth/profile/me", {
+      const uid = localStorage.getItem("uid")
+      if (!uid) return
+
+      const res = await axios.get(`${API_URL}/auth/profile/${uid}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
 
@@ -65,6 +66,7 @@ const signIn = async (email: string, password: string) => {
     const tokenRes = await axios.post(`${API_URL}/auth/signin`, { uid })
     const { token } = tokenRes.data
 
+    localStorage.setItem("uid", uid)
     localStorage.setItem("authToken", token)
     await fetchUser()
   } catch (err) {
