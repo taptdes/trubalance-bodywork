@@ -10,6 +10,7 @@ import { Footer } from '@/lib/blocks/Footer'
 import "./index.css"
 import { Services } from './pages/Services'
 import { Contact } from './pages/Contact'
+import  {Booking}  from './pages/Booking'
 import Resources from "@/pages/Resources"
 import ClinicInfo from "@/pages/Clinic"
 import ProfilePage from "@/pages/Profile"
@@ -31,7 +32,7 @@ function App() {
         <Route path="/" element={<Home onNavigate={handleNavigate} />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-
+        <Route path="/booking" element={<Booking />} />
         <Route path="/services" element={<Services onBookNow={() => { }} />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/location" element={<ClinicInfo />} />
