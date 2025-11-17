@@ -207,17 +207,13 @@ export function Services({ onBookNow }: ServicesProps) {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredAndSortedServices.map((service, index) => {
                 // Get the display text for duration and pricing
-                const durationText = service.durations.length === 1 
-                  ? `${service.durations[0]} minutes`
-                  : service.durations.map(d => `${d} min`).join(' / ')
-                
                 const priceText = service.durations.length === 1
                   ? `$${service.prices[service.durations[0]]}`
                   : service.durations.map(d => `$${service.prices[d]}`).join(' / ')
 
                 return (
                   <Card key={index} className="group overflow-hidden bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105">
-                    <div className="relative">
+                    <div className="relative h-64 overflow-hidden">
                       <Image
                         src={service.image}
                         alt={service.title}
@@ -235,12 +231,8 @@ export function Services({ onBookNow }: ServicesProps) {
                     </div>
                     
                     <CardHeader className="pb-4">
-                      <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center justify-between">
                         <CardTitle className="text-xl">{service.title}</CardTitle>
-                      </div>
-                      <div className="flex items-center text-gray-500 text-sm">
-                        <Clock className="w-4 h-4 mr-2" />
-                        {durationText}
                       </div>
                     </CardHeader>
                     
