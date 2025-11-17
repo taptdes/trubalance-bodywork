@@ -82,7 +82,7 @@ export function Navigation({ onNavigate }: NavigationProps) {
                   // Signed in view
                   <>
                     <button
-                      onClick={() => onNavigate("book")}
+                      onClick={() => onNavigate("booking")}
                       className="px-4 py-2 rounded-lg transition-all duration-500 font-semibold backdrop-blur-sm shadow-md btn-gradient-primary text-white hover:btn-gradient-primary"
                     >
                       Book Now
@@ -109,7 +109,7 @@ export function Navigation({ onNavigate }: NavigationProps) {
                       </DialogContent>
                     </Dialog>
                     <button
-                      onClick={() => onNavigate("book")}
+                      onClick={() => onNavigate("booking")}
                       className="px-4 py-2 rounded-lg transition-all duration-500 font-semibold backdrop-blur-sm shadow-md btn-gradient-primary text-white hover:btn-gradient-primary"
                     >
                       Book Now
@@ -156,7 +156,7 @@ export function Navigation({ onNavigate }: NavigationProps) {
             {!loading && (isAuthenticated ? (
               <>
                 <button
-                  onClick={() => { onNavigate("book"); setIsMobileMenuOpen(false) }}
+                  onClick={() => { onNavigate("booking"); setIsMobileMenuOpen(false) }}
                   className="mt-6 px-4 py-2 rounded-lg transition-all duration-500 font-semibold backdrop-blur-sm shadow-md btn-gradient-primary text-white hover:btn-gradient-primary"
                 >
                   Book Now
@@ -182,7 +182,7 @@ export function Navigation({ onNavigate }: NavigationProps) {
                   </DialogContent>
                 </Dialog>
                 <button
-                  onClick={() => { onNavigate("book"); setIsMobileMenuOpen(false) }}
+                  onClick={() => { onNavigate("booking"); setIsMobileMenuOpen(false) }}
                   className="mt-4 px-4 py-2 rounded-lg transition-all duration-500 font-semibold backdrop-blur-sm shadow-md btn-gradient-primary text-white hover:btn-gradient-primary"
                 >
                   Book Now
