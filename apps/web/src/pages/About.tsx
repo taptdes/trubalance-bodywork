@@ -16,7 +16,7 @@ export function About() {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-5xl font-light text-gray-900 mb-6">
-            Meet <span className="bg-linear-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-medium">Brenden Heywood</span>
+            Meet <span className="bg-linear-to-r from-moss-500 to-mint-600 bg-clip-text text-transparent font-medium">Brenden Heywood</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Dedicated to creating healing spaces where transformation and wellness flourish naturally
