@@ -2,10 +2,10 @@
 
 @layer utilities {
   .bg-default { background-color: var(--color-white); }
-  .bg-content { background-color: var(--color-neutral-100); }
-  .bg-body { background-color: var(--color-neutral-400); }
-  .bg-subtle { background-color: var(--color-neutral-50); }
-  .bg-disabled { background-color: var(--color-neutral-100); }
+  .bg-content { background-color: var(--color-stone-100); }
+  .bg-body { background-color: var(--color-stone-400); }
+  .bg-subtle { background-color: var(--color-stone-50); }
+  .bg-disabled { background-color: var(--color-stone-100); }
 
   .bg-primary { background-color: var(--color-primary, #8DC757); }
   .bg-primary-light { background-color: var(--color-primary-light); }
