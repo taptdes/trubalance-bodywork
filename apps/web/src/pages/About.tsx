@@ -4,7 +4,7 @@ import brendenRunning from '@/assets/images/hero-lilypad.webp'
 
 export function About() {
   return (
-    <div className="min-h-screen bg-linear-to-br from-gray-50 via-emerald-50/30 to-teal-50/50 relative overflow-hidden">
+    <div className="min-h-screen pt-20 bg-linear-to-br from-gray-50 via-emerald-50/30 to-teal-50/50 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-linear-to-br from-emerald-200/20 to-teal-300/10 rounded-full blur-3xl"></div>
