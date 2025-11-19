@@ -11,7 +11,7 @@ export function About() {
         <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-linear-to-br from-blue-200/15 to-emerald-200/20 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         
         {/* Header */}
         <div className="text-center mb-16">
