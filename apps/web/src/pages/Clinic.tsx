@@ -41,7 +41,7 @@ export default function ClinicInfo() {
   const todayHours = businessHours[today === 0 ? 6 : today - 1]
 
   return (
-    <section id="clinic-info" className="relative pt-20 pb-24 bg-white" style={{ zIndex: 10 }}>
+    <section id="clinic-info" className="relative pt-30 pb-24 bg-white" style={{ zIndex: 10 }}>
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-16">

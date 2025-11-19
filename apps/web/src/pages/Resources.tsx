@@ -66,7 +66,7 @@ export default function Resources() {
   const otherArticles = articles.filter(a => !a.featured)
 
   return (
-    <section id="resources" className="relative pt-20 pb-24 bg-linear-to-b from-white to-gray-50" style={{ zIndex: 10 }}>
+    <section id="resources" className="relative pt-30 pb-24 bg-linear-to-b from-white to-gray-50" style={{ zIndex: 10 }}>
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-16">

@@ -42,7 +42,7 @@ export function BookingFlow() {
     setState(prev => ({ ...prev, ...patch }))
 
   return (
-    <div className="min-h-screen relative pt-20 pb-24 bg-neutral-50 py-10">
+    <div className="min-h-screen relative pt-30 pb-24 bg-neutral-50 py-10">
       <div className="max-w-5xl mx-auto">
         <BookingHeader step={state.step} />
 
