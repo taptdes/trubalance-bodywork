@@ -21,6 +21,7 @@ const meta: Meta<typeof Card> = {
     alignH: "left",
     alignV: "top",
   },
+  tags: ['autodocs'],
   argTypes: {
     badge: {
       control: "select",

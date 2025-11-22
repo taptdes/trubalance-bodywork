@@ -3,4 +3,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --shadow-sm: box-shadow 0 1px 3px rgb(0 0 0 / 10%),;
+  --shadow-md: box-shadow 0 3px 12px rgb(0 0 0 / 8%),;
+  --shadow-lg: box-shadow 0 10px 20px rgb(0 0 0 / 10%),
+  
 }

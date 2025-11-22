@@ -38,9 +38,9 @@
 }
 
 @layer utilities {
-  .border-default { border-color: var(--color-neutral-400); }
-  .border-subtle { border-color: var(--color-neutral-300); }
-  .border-disabled { border-color: var(--color-neutral-200); }
+  .border-default { border-color: var(--color-stone-400); }
+  .border-subtle { border-color: var(--color-stone-300); }
+  .border-disabled { border-color: var(--color-stone-200); }
 
   .border-primary { border-color: var(--color-primary); }
   .border-primary-light { border-color: var(--color-primary-light); }
@@ -65,6 +65,7 @@
   .border-error { border-color: var(--color-error); }
   .border-error-light { border-color: var(--color-error-light); }
   .border-error-dark { border-color: var(--color-error-dark); }
+  .border-error\/50 { border-color: var(--color-error, rgb(201 37 48 / 50%)); }
 
   .border-info { border-color: var(--color-info); }
   .border-info-light { border-color: var(--color-info-light); }

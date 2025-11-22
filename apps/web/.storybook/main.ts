@@ -1,10 +1,13 @@
-import path from 'path'
+import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
+import type { StorybookConfig } from '@storybook/react-vite'
 
 const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const __dirname = dirname(__filename)
 
-import type { StorybookConfig } from '@storybook/react-vite'
+function getAbsolutePath(value: string): string {
+  return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)))
+}
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
@@ -12,6 +15,7 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
+  addons: ['@storybook/addon-docs'],
   viteFinal: (config) => {
     config.resolve = config.resolve || {}
     config.resolve.alias = {

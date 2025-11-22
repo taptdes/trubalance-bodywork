@@ -1,28 +1,19 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@import "@/styles/colors.css";
-@import "@/styles/bgColors.css";
-@import "@/styles/textColors.css";
-@import "@/styles/borderColors.css";
-
-/* @import '@/styles/base/colors.css';
+@import '@/styles/base/colors.css';
 @import '@/styles/base/layout.css';
-*/
 @import '@/styles/base/typography.css';
 
-/*
 @import '@/styles/tokens/colors.css';
 @import '@/styles/tokens/bgColors.css';
 @import '@/styles/tokens/borderColors.css';
 @import '@/styles/tokens/textColors.css';
-*/
 @import '@/styles/tokens/opacity.css';
 
 @import '@/styles/utils/hover.css';
 @import '@/styles/utils/gradients.css';
 @import '@/styles/utils/opacity.css';
-
 
 @custom-variant dark (&:is(.dark *));
 

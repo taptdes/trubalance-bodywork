@@ -1,3 +1,5 @@
+@import '@/styles/base/colors.css';
+
 :root {
   --color-primary\/90: rgb(141 199 87 / 90%);
   --color-primary\/50: rgb(141 199 87 / 50%);
