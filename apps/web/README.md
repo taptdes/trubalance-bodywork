@@ -12,10 +12,10 @@ This folder is part of a larger monorepo.
 Key structure:
 trubalance-bodywork/
 ├── apps/
-│   ├── web/       → Frontend (public-facing website)
-│   └── backend/   → Backend (API and server logic)
-├── packages/      → Shared components/utilities
-└── …              → Other configuration or tooling files
+│ ├── web/ → Frontend (public-facing website)
+│ └── backend/ → Backend (API and server logic)
+├── packages/ → Shared components/utilities
+└── … → Other configuration or tooling files
 
 ---
 
@@ -28,6 +28,7 @@ This project uses pnpm as the package manager.
 Install via Corepack (Recommended)
 
 Node 16.13+ includes Corepack, which can enable pnpm automatically:
+
 ```
 corepack enable
 corepack prepare pnpm@latest --activate
@@ -36,11 +37,13 @@ corepack prepare pnpm@latest --activate
 #### Or Install pnpm Globally
 
 If you prefer a global install:
+
 ```
 npm install -g pnpm
 ```
 
 Verify installation
+
 ```
 pnpm -v
 ```
@@ -50,13 +53,15 @@ pnpm -v
 You can install the project in one of two ways:
 
 #### Option A — Download ZIP (No Git Required)
-	1.	Visit the GitHub repository.
-	2.	Click Code → Download ZIP.
-	3.	Extract the ZIP anywhere on your machine.
+
+    1.	Visit the GitHub repository.
+    2.	Click Code → Download ZIP.
+    3.	Extract the ZIP anywhere on your machine.
 
 #### Option B — Clone via SSH (Recommended)
 
 Make sure your SSH key is added to GitHub, then run:
+
 ```
 git clone git@github.com:YOUR-USERNAME/YOUR-REPO.git
 ```
@@ -66,11 +71,55 @@ git clone git@github.com:YOUR-USERNAME/YOUR-REPO.git
 Retrieve the required environment files from 1Password.
 
 You will need to mount all three:
-	•	.env — Development
-	•	.env.staging — Staging
-	•	.env.production — Production
+• .env — Development
+• .env.staging — Staging
+• .env.production — Production
 
 Place each file inside the appropriate project folder (typically / or /apps/<project> depending on your structure).
+
+.env example
+NODE_ENV=development
+APP_NAME=
+MONOREPO=true
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_NAME=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_PROJECT_NUMBER=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+VITE_FIREBASE_MEASUREMENT_ID=
+VITE_FIREBASE_APPOINTMENTS_ID=
+VITE_BACKEND_URL=http://localhost:5000
+
+.env.production example
+NODE_ENV=production
+APP_NAME=
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_NAME=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_PROJECT_NUMBER=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+VITE_FIREBASE_MEASUREMENT_ID=
+VITE_FIREBASE_APPOINTMENTS_ID=
+VITE_BACKEND_URL=
+GITHUB_TOKEN=
+
+backend:
+.env
+BACKEND_PORT=3000
+FIREBASE_SERVICE_ACCOUNT=
+FIREBASE_STORAGE_BUCKET=
+FIREBASE_API_KEY=
+FRONTEND_URL=http://localhost:5173
+GITHUB_TOKEN=
+GOOGLE_APPLICATION_CREDENTIALS=./firebase-service-account.json
+GOOGLE_PROJECT_ID=
+SESSION_SECRET=
 
 ### 3. (If You Downloaded the ZIP) Connect to Git
 
@@ -82,6 +131,7 @@ git remote add origin git@github.com:YOUR-USERNAME/YOUR-REPO.git
 ```
 
 (Optional) Pull the latest main branch:
+
 ```
 git pull origin main
 ```
@@ -94,6 +144,7 @@ From the monorepo root:
 pnpm install
 ### Install dependencies
 ```
+
 This installs all dependencies across the monorepo, including shared packages.
 
 ### Run development server
@@ -105,7 +156,6 @@ pnpm dev --filter web
 Open your browser to [http://localhost:3000](http://localhost:3000) (or the port shown in the console) to view the app.
 
 ---
-
 
 ## Git & Deployment
 
