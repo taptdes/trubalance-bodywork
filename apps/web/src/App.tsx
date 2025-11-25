@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
-// import { Home } from "./pages/HomeNew";
+import { useState } from 'react'
+import { Routes, Route, useNavigate } from "react-router-dom"
 import { Home } from "./pages/Home"
 import { Navigation } from "@/components/ui/navigation"
 import type { PageType } from "@/components/ui/navigation/types"
@@ -10,7 +9,7 @@ import { Footer } from '@/lib/blocks/Footer'
 import "./index.css"
 import { Services } from './pages/Services'
 import { Contact } from './pages/Contact'
-import  {Booking}  from './pages/Booking'
+import { Booking } from './pages/Booking'
 import Resources from "@/pages/Resources"
 import ClinicInfo from "@/pages/Clinic"
 import ProfilePage from "@/pages/Profile"
@@ -50,11 +49,7 @@ const LDApp = withLDProvider({
     useCamelCaseFlagKeys: false,
   },
 })(() => (
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+  <App />
 ))
 
 export { App, LDApp }
