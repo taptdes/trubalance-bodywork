@@ -18,6 +18,7 @@ export function Footer({ onSectionChange }: FooterProps) {
 
   const legalLinks: Array<{ id: PageType; label: string; icon: JSX.Element }> = [
     { id: 'policies', label: 'Policies & Terms', icon: <FileText className="w-4 h-4" /> },
+    { id: 'resources', label: 'FAQ', icon: <HelpCircle className="w-4 h-4" /> },
     { id: 'resources', label: 'FAQ', icon: <HelpCircle className="w-4 h-4" /> }
   ]
 
