@@ -27,28 +27,43 @@ export function BookingStepDateTime({
   state: BookingState
   update: (patch: Partial<BookingState>) => void
 }) {
-  const { selectedDate, selectedTime } = state
+  const { selectedDate, selectedTime, selectedDuration, isRecurring } = state
+
+  const handleNextAvailableDate = () => {
+    // Find the next available date (for now, just select tomorrow)
+    const tomorrow = new Date()
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    update({ selectedDate: tomorrow })
+  }
 
   return (
     <div className="grid lg:grid-cols-3 gap-6">
       <div className="lg:col-span-2 space-y-6">
-        {/* Calendar placeholder */}
-        {/* <div className="bg-white p-6 rounded-xl border">Calendar Component</div> */}
-        <BookingCalendar selectedDate={selectedDate} onSelectDate={() => {}} />
+        <BookingCalendar
+          selectedDate={selectedDate}
+          onSelectDate={(date) => update({ selectedDate: date })}
+          duration={selectedDuration}
+          onDurationChange={(duration) => update({ selectedDuration: duration })}
+          isRecurring={isRecurring}
+          onRecurringChange={(recurring) => update({ isRecurring: recurring })}
+          onNextAvailableDate={handleNextAvailableDate}
+        />
 
         {/* Time Slots */}
         {selectedDate && (
-          <div>
-            <h4 className="text-sm font-semibold mb-2">Choose a Time</h4>
+          <div className="bg-white rounded-xl border border-gray-200 p-6">
+            <h4 className="text-sm font-semibold mb-4 text-gray-900">
+              Available Time Slots for {selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
+            </h4>
             <div className="grid grid-cols-4 gap-2">
               {TIME_SLOTS.map(t => (
                 <button
                   key={t}
                   onClick={() => update({ selectedTime: t })}
-                  className={`p-2 rounded-lg text-sm border ${
+                  className={`text-xs p-2 rounded-lg border ${
                     selectedTime === t
-                      ? "bg-black text-white"
-                      : "bg-white hover:border-gray-300"
+                      ? 'bg-black text-white'
+                      : 'bg-gray-50 hover:border-gray-300'
                   }`}
                 >
                   {t}

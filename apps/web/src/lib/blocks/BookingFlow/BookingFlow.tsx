@@ -13,7 +13,9 @@ export function BookingFlow() {
     cart: [],
     selectedDate: undefined,
     selectedTime: '',
+    selectedDuration: 60,
     selectedDurations: {},
+    isRecurring: false,
     patientType: 'new',
     formData: {
       firstName: '',

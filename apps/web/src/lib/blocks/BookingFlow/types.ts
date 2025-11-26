@@ -45,7 +45,9 @@ export type BookingState = {
   cart: CartItem[]
   selectedDate?: Date
   selectedTime: string
+  selectedDuration: number
   selectedDurations: Record<number, number>
+  isRecurring: boolean
   patientType: "new" | "returning"
   formData: FormData
 }
