@@ -1,27 +1,52 @@
 import { useState } from 'react'
-import { Routes, Route, useNavigate } from "react-router-dom"
-import { Home } from "./pages/Home"
-import { Navigation } from "@/components/ui/navigation"
-import type { PageType } from "@/components/ui/navigation/types"
-import { withLDProvider } from "launchdarkly-react-client-sdk"
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Home } from './pages/Home'
+import { Navigation } from '@/components/ui/navigation'
+import type { PageType } from '@/components/ui/navigation/types'
+import { withLDProvider } from 'launchdarkly-react-client-sdk'
 import { About } from './pages/About'
 import { Footer } from '@/lib/blocks/Footer'
 import './index.css'
 import { Services } from './pages/Services'
 import { Contact } from './pages/Contact'
-import { Booking } from './pages/Booking'
-import Resources from "@/pages/Resources"
-import ClinicInfo from "@/pages/Clinic"
-import ProfilePage from "@/pages/Profile"
+import Resources from '@/pages/Resources'
+import ClinicInfo from '@/pages/Clinic'
+import ProfilePage from '@/pages/Profile'
 
 function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('home')
   const navigate = useNavigate()
 
   const handleNavigate = (page: PageType) => {
+    // Guard against invalid page types
+    if (!page) {
+      console.warn('handleNavigate called with invalid page type')
+      return
+    }
+
     setCurrentPage(page)
-    if (page === 'home') navigate('/')
-    else navigate(`/${page}`)
+
+    // Redirect to external Square booking page
+    if (page === 'booking') {
+      try {
+        window.location.href =
+          'https://book.squareup.com/appointments/3kbzu7zt3ue90u/location/LYB1S1NE2CJN5/services'
+      } catch (error) {
+        console.error('Failed to redirect to booking page:', error)
+      }
+      return
+    }
+
+    // Handle internal navigation
+    try {
+      if (page === 'home') {
+        navigate('/')
+      } else {
+        navigate(`/${page}`)
+      }
+    } catch (error) {
+      console.error('Navigation error:', error)
+    }
   }
 
   return (
@@ -31,14 +56,12 @@ function App() {
         <Route path="/" element={<Home onNavigate={handleNavigate} />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/booking" element={<Booking />} />
-        <Route path="/services" element={<Services onBookNow={() => {}} />} />
+        <Route path="/services" element={<Services onBookNow={() => handleNavigate('booking')} />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/location" element={<ClinicInfo />} />
         <Route path="/profile" element={<ProfilePage />} />
-        {/* <Route path="/" element={<Home onBookNow={() => { }} onSectionChange={() => { }} />} />     */}
       </Routes>
-      <Footer onSectionChange={() => {}} />
+      <Footer onSectionChange={handleNavigate} />
     </>
   )
 }
@@ -48,8 +71,6 @@ const LDApp = withLDProvider({
   reactOptions: {
     useCamelCaseFlagKeys: false,
   },
-})(() => (
-  <App />
-))
+})(() => <App />)
 
 export { App, LDApp }
