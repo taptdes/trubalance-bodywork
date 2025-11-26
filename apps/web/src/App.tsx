@@ -1,19 +1,18 @@
-import React, { useState } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
-// import { Home } from "./pages/HomeNew";
-import { Home } from './pages/Home'
-import { Navigation } from '@/components/ui/navigation'
-import type { PageType } from '@/components/ui/navigation/types'
-import { withLDProvider } from 'launchdarkly-react-client-sdk'
+import { useState } from 'react'
+import { Routes, Route, useNavigate } from "react-router-dom"
+import { Home } from "./pages/Home"
+import { Navigation } from "@/components/ui/navigation"
+import type { PageType } from "@/components/ui/navigation/types"
+import { withLDProvider } from "launchdarkly-react-client-sdk"
 import { About } from './pages/About'
 import { Footer } from '@/lib/blocks/Footer'
 import './index.css'
 import { Services } from './pages/Services'
 import { Contact } from './pages/Contact'
 import { Booking } from './pages/Booking'
-import Resources from '@/pages/Resources'
-import ClinicInfo from '@/pages/Clinic'
-import ProfilePage from '@/pages/Profile'
+import Resources from "@/pages/Resources"
+import ClinicInfo from "@/pages/Clinic"
+import ProfilePage from "@/pages/Profile"
 
 function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('home')
@@ -50,9 +49,7 @@ const LDApp = withLDProvider({
     useCamelCaseFlagKeys: false,
   },
 })(() => (
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <App />
 ))
 
 export { App, LDApp }
