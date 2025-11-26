@@ -1,22 +1,23 @@
-import { BookingCart } from "../components/BookingCart"
-import type { BookingState } from "../types"
+import { BookingCalendar } from '../components/BookingCalendar'
+import { BookingCart } from '../components/BookingCart'
+import type { BookingState } from '../types'
 
 const TIME_SLOTS = [
-  "8:00 AM",
-  "8:30 AM",
-  "9:00 AM",
-  "9:30 AM",
-  "10:00 AM",
-  "10:30 AM",
-  "11:00 AM",
-  "11:30 AM",
-  "1:00 PM",
-  "1:30 PM",
-  "2:00 PM",
-  "2:30 PM",
-  "3:00 PM",
-  "3:30 PM",
-  "4:00 PM",
+  '8:00 AM',
+  '8:30 AM',
+  '9:00 AM',
+  '9:30 AM',
+  '10:00 AM',
+  '10:30 AM',
+  '11:00 AM',
+  '11:30 AM',
+  '1:00 PM',
+  '1:30 PM',
+  '2:00 PM',
+  '2:30 PM',
+  '3:00 PM',
+  '3:30 PM',
+  '4:00 PM',
 ]
 
 export function BookingStepDateTime({
@@ -31,9 +32,9 @@ export function BookingStepDateTime({
   return (
     <div className="grid lg:grid-cols-3 gap-6">
       <div className="lg:col-span-2 space-y-6">
-
         {/* Calendar placeholder */}
-        <div className="bg-white p-6 rounded-xl border">Calendar Component</div>
+        {/* <div className="bg-white p-6 rounded-xl border">Calendar Component</div> */}
+        <BookingCalendar selectedDate={selectedDate} onSelectDate={() => {}} />
 
         {/* Time Slots */}
         {selectedDate && (
@@ -60,7 +61,7 @@ export function BookingStepDateTime({
 
       <BookingCart
         cart={state.cart}
-        updateCart={cart => update({ cart })}
+        updateCart={(cart) => update({ cart })}
         onContinue={() => update({ step: 3 })}
         onBack={() => update({ step: 1 })}
       />
