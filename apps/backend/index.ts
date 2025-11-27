@@ -37,7 +37,7 @@ app.use(cors({
 
 app.use(express.json())
 
-app.use("/static-images", express.static(path.join(__dirname, "assets/images")))
+app.use("/static-images", express.static(path.join(__dirname, "../assets/images")))
 
 const recaptchaClient = new RecaptchaEnterpriseServiceClient()
 
