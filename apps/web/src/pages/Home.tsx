@@ -4,12 +4,12 @@ import type { PageType } from "@/components/ui/navigation/types"
 import {
   HomeHero,
   TestimonialsSection,
-  ResourcesSection,
-  QuickContactSection,
+ // ResourcesSection,
+ // QuickContactSection,
   FAQSection
 } from "@/lib/sections/index"
-import { BookingForm } from "@/lib/sections/BookingForm"
-import { Footer } from "@/components/ui/navigation/footer"
+//import { BookingForm } from "@/lib/sections/BookingForm"
+//import { Footer } from "@/components/ui/navigation/footer"
 import { Services } from '@/lib/sections/Services'
 import { CTA } from '@/lib/sections/CTASection'
 import { Contact } from "@/lib/blocks/Contact"
