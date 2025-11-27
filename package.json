@@ -145,6 +145,7 @@
     "firebase-admin": "^11.9.0",
     "framer-motion": "^12.23.24",
     "launchdarkly-react-client-sdk": "^3.8.1",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "vercel": "^48.11.0"
   }
 }

@@ -12,6 +12,7 @@ import {
   deleteUser,
 } from "./src/lib/firebase/auth.js"
 import { authenticate } from "./src/utils/authenticate.js"
+import path from "path"
 
 const app = express()
 
@@ -32,6 +33,8 @@ app.use(cors({
 
 app.use(express.json())
 
+app.use("/static-images", express.static(path.join(__dirname, "assets/images")))
+
 const recaptchaClient = new RecaptchaEnterpriseServiceClient()
 
 // --- Public Auth routes ---
@@ -47,11 +50,11 @@ app.delete("/auth/profile/:uid", authenticate, deleteUser)
 // --- Contact route ---
 app.post("/contact", async (req: Request, res: Response) => {
   const { name, email, phone, message, recaptchaToken } = req.body
-  
+
   if (!recaptchaToken) return res.status(400).json({ message: "Missing reCAPTCHA token" })
-  
+
   const result = await verifyRecaptcha(recaptchaToken, "contact_form")
-  
+
   if (!result.valid) {
     return res.status(400).json({
       message: "Failed reCAPTCHA verification",
@@ -59,7 +62,7 @@ app.post("/contact", async (req: Request, res: Response) => {
       score: result.score,
     })
   }
-  
+
   const docRef = await db.collection("appointments").add({
     name,
     email,
@@ -67,7 +70,7 @@ app.post("/contact", async (req: Request, res: Response) => {
     message,
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
   })
-  
+
   res.json({ message: "Success", id: docRef.id })
 })
 
@@ -76,15 +79,15 @@ app.get("/images/:filename", async (req: Request, res: Response) => {
   try {
     const { filename } = req.params
     const file = bucket.file(`images/${filename}`)
-    
+
     const [exists] = await file.exists()
     if (!exists) return res.status(404).json({ message: "Image not found" })
-    
+
     const [url] = await file.getSignedUrl({
       action: "read",
       expires: Date.now() + 60 * 60 * 1000, // 1 hour
     })
-    
+
     res.redirect(url)
   } catch (error) {
     console.error("Error fetching image:", error)
