@@ -13,8 +13,12 @@ import {
 } from "./src/lib/firebase/auth.js"
 import { authenticate } from "./src/utils/authenticate.js"
 import path from "path"
+import { fileURLToPath } from "url"
 
 const app = express()
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // --- Allowed origins for CORS ---
 const allowedOrigins = [
