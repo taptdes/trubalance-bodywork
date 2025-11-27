@@ -1,7 +1,9 @@
 import { Image } from "@/components/ui/image"
 import { AnimatedSection } from "./AnimatedSection"
 import { motion } from "framer-motion"
-import { Leaf, Heart, Star, Users } from "lucide-react"
+import { Leaf, Heart, Gem, Users } from "lucide-react"
+const backendUrl = import.meta.env.VITE_BACKEND_URL
+const image = `${backendUrl}/images/imgHomeDetails.webp`
 
 const features = [
   {
@@ -15,9 +17,9 @@ const features = [
     description: "Our approach focuses on healing the whole person - body, mind, and spirit."
   },
   {
-    icon: Star,
-    title: "Expert Therapists",
-    description: "Our certified professionals have years of experience in luxury spa treatments."
+    icon: Gem,
+    title: "Transparent Pricing",
+    description: "No hidden fees or unexpected costs, ensuring you can relax without worries."
   },
   {
     icon: Users,
@@ -34,14 +36,11 @@ export function Details() {
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-medium mb-6">Where Wellness Meets Luxury</h2>
             <p className="text-lg text-muted-foreground mb-8">
-              At Serenity Spa, we believe that true wellness comes from harmony between mind, body, and spirit. 
-              Our sanctuary offers a peaceful escape from the everyday, where you can reconnect with yourself 
-              and experience profound relaxation.
+              At TruBalance Bodywork, we pride ourselves on offering exceptional quality and personalized care in every session. Each massage is tailored to your individual needs, utilizing techniques such as cupping, aromatherapy, and advanced bodywork—ensuring no hidden fees or unexpected costs. 
             </p>
-            <p className="text-muted-foreground mb-8">
-              Founded with a passion for holistic wellness, we've created a space where ancient healing 
-              traditions meet modern luxury. Every detail has been carefully designed to transport you 
-              to a world of tranquility and restoration.
+            <p className="text-lg text-muted-foreground mb-8">
+              Gratuity is already included, so the price you see is the total price you pay—providing you with complete transparency. This allows you to fully relax and focus on your healing journey without any concerns.
+
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -73,7 +72,7 @@ export function Details() {
                 className="z-10"
               >
                 <Image 
-                  src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  src={image}
                   alt="Peaceful spa interior with natural elements"
                   className="w-full h-96 z-10 object-cover rounded-lg shadow-lg"
                 />
@@ -86,7 +85,7 @@ export function Details() {
                 viewport={{ once: true }}
               >
                 <div className="text-center z-30">
-                  <div className="text-2xl font-medium text-primary">15+</div>
+                  <div className="text-2xl font-medium text-primary">13+</div>
                   <div className="text-sm text-muted-foreground">Years of Excellence</div>
                 </div>
               </motion.div>

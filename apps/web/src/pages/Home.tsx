@@ -29,9 +29,9 @@ export function Home({ onNavigate }: HomePageProps) {
   const showNewHome = override || enableHome001
 
   const [isBookingOpen, setIsBookingOpen] = useState(false)
-    const [preselectedService, setPreselectedService] = useState<string | undefined>(undefined)
+  const [preselectedService, setPreselectedService] = useState<string | undefined>(undefined)
 
- const openBooking = (serviceId?: string) => {
+  const openBooking = (serviceId?: string) => {
     setPreselectedService(serviceId)
     setIsBookingOpen(true)
   }
@@ -56,35 +56,35 @@ export function Home({ onNavigate }: HomePageProps) {
       {showNewHome ? (
         <div className="flex flex-col items-center relative size-full">
           <div className="box-border content-stretch flex flex-col items-center justify-start pb-0 pt-0 px-0 relative size-full">
-            {/* DO NOT render <Navigation /> here */}
-            {/*<HomeHero onNavigate={onNavigate} /> */}
-            <HomeHero onNavigate={onNavigate} />
+
+            <HomeHero onNavigate={onNavigate} onBookNow={() => openBooking()} />
+            <Services onNavigate={onNavigate} />
+            <Details />
+            <Info />
             <TestimonialsSection />
-            <ResourcesSection onNavigate={onNavigate} />
-            <QuickContactSection onNavigate={onNavigate} />
-            <BookingForm />
+            <Contact />
             <FAQSection />
-            <Footer onNavigate={onNavigate} />
+            <CTA onNavigate={onNavigate} />
+            <BookingDialog
+              isOpen={isBookingOpen}
+              onClose={closeBooking}
+              preselectedService={preselectedService}
+            />
+
+            <Toaster position="top-center" richColors />
           </div>
         </div>
       ) : (
         <div className="flex flex-col items-center relative size-full">
           <div className="box-border content-stretch flex flex-col items-center justify-start pb-0 pt-0 px-0 relative size-full">
-            <HomeHero onNavigate={onNavigate} onBookNow={() => openBooking()}/>
+            <HomeHero onNavigate={onNavigate} onBookNow={() => openBooking()} />
             <Services onNavigate={onNavigate} />
             <Details />
             <Info />
-            <TestimonialsSection />
-<Contact />
-<FAQSection />
-            <CTA onNavigate={onNavigate}/>
-            <BookingDialog
-            isOpen={isBookingOpen}
-            onClose={closeBooking}
-            preselectedService={preselectedService}
-          />
+            <CTA onNavigate={onNavigate} />
+            
 
-          <Toaster position="top-center" richColors />
+            <Toaster position="top-center" richColors />
           </div>
         </div>
       )}

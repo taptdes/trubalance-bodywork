@@ -11,13 +11,13 @@ export function Contact() {
   return (
     <section id="testimonials" className="relative w-full bg-white py-16 px-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-         <AnimatedSection className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-medium mb-4">Book Your Experience</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Ready to begin your journey to wellness? Contact us to schedule your appointment or learn more about our services.
           </p>
         </AnimatedSection>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Booking Form */}
           <AnimatedSection>
@@ -69,8 +69,8 @@ export function Contact() {
                     </Select>
                   </div>
                   <Textarea placeholder="Special requests or preferences..." rows={3} />
-                  <Button 
-                    className="w-full bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700" 
+                  <Button
+                    className="w-full bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
                     size="lg"
                   >
                     Book Appointment
@@ -79,7 +79,7 @@ export function Contact() {
               </Card>
             </motion.div>
           </AnimatedSection>
-          
+
           {/* Contact Information */}
           <div className="space-y-6">
             <AnimatedSection delay={0.2}>
@@ -93,14 +93,14 @@ export function Contact() {
                       <Phone className="w-5 h-5 text-purple-600" />
                       <div>
                         <div className="font-medium">Phone</div>
-                        <div className="text-muted-foreground">(555) 123-4567</div>
+                        <div className="text-muted-foreground">801-691-6657</div>
                       </div>
                     </div>
                     <div className="flex items-center space-x-3 mb-4">
                       <Mail className="w-5 h-5 text-purple-600" />
                       <div>
                         <div className="font-medium">Email</div>
-                        <div className="text-muted-foreground">info@serenityspa.com</div>
+                        <div className="text-muted-foreground">brenden.heywood.lmt@gmail.com</div>
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
@@ -108,8 +108,8 @@ export function Contact() {
                       <div>
                         <div className="font-medium">Address</div>
                         <div className="text-muted-foreground">
-                          123 Wellness Boulevard<br />
-                          Downtown District, City 12345
+                          388 W Center St<br />
+                          Orem, Ut 84057
                         </div>
                       </div>
                     </div>
@@ -117,7 +117,7 @@ export function Contact() {
                 </Card>
               </motion.div>
             </AnimatedSection>
-            
+
             <AnimatedSection delay={0.6}>
               <Card className="bg-linear-to-r from-purple-50 to-pink-50 border-purple-200">
                 <CardContent className="p-6">
@@ -125,8 +125,8 @@ export function Contact() {
                   <p className="text-sm text-muted-foreground mb-4">
                     New clients receive 15% off their first treatment. Please arrive 15 minutes early to complete your wellness consultation.
                   </p>
-                  <Button 
-                    variant="outlined" 
+                  <Button
+                    variant="outlined"
                     className="border-purple-600 text-purple-700 hover:bg-purple-600 hover:text-white"
                   >
                     Learn More

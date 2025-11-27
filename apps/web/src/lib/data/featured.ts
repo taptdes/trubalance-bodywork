@@ -1,7 +1,7 @@
 const galleryImages = [
-  { src: `${import.meta.env.VITE_BACKEND_URL}/images/services_swedish.webp`, type: "image" as const, alt: "Waxing" },
-  { src: `${import.meta.env.VITE_BACKEND_URL}/images/services_clothed.webp`, type: "image" as const, alt: "Film still" },
-  { src: `${import.meta.env.VITE_BACKEND_URL}/images/services_oil.webp`, type: "image" as const, alt: "Nails" },
+  { src: `${import.meta.env.VITE_BACKEND_URL}/images/imgServicesMassage.webp`, type: "image" as const, alt: "Therapeutic Massage" },
+  { src: `${import.meta.env.VITE_BACKEND_URL}/images/imgServicesReiki.webp`, type: "image" as const, alt: "Reiki" },
+  { src: `${import.meta.env.VITE_BACKEND_URL}/images/imgServicesTBBAlign.webp`, type: "image" as const, alt: "TruBalance Alignment Session" },
 ]
 
 export interface Service {
@@ -14,14 +14,14 @@ export interface Service {
 }
 
 export const featured: Service[] = galleryImages.map((img, i) => ({
-  title: ["Therapeutic Massage", "Reiki Energy Healing", "Trauma-Informed Care"][i],
+  title: ["Therapeutic Massage", "Reiki Energy Healing", "TruBalance Alignment Session"][i],
   description: [
-    "Deep tissue and Swedish massage techniques for physical healing and relaxation",
-    "Gentle energy work to restore balance and promote deep healing",
-    "Safe, compassionate bodywork that honors your healing process",
+    "Classic relaxation massage using flowing strokes to effectively reduce stress and promote circulation.",
+    "Gentle energy work fosters balance and relaxation, promoting natural healing for mind, body, and spirit.",
+    "Energy work that aligns your body and energy systems through a blend of intuitive techniques.",
   ][i],
   image: img.src,
-  price: ["$50-125", "$95", "$95"][i],
-  duration: ["30 - 90 min", "60 min", "60 min"][i],
+  price: ["$50-125", "$50-120", "$125"][i],
+  duration: ["30 - 90 min", "30 - 60 min", "60 min"][i],
   featured: i === 0,
 }))
