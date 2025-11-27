@@ -2,21 +2,24 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Heart, Instagram, Facebook, Mail, Phone, MapPin, FileText, HelpCircle } from 'lucide-react'
 import logoImage from '/assets/branding/logo-mark.svg'
+import type { PageType } from '@/components/ui/navigation/types'
+import type { JSX } from 'react'
 
 interface FooterProps {
-  onSectionChange: (section: string) => void;
+  onSectionChange: (section: PageType) => void;
 }
 
 export function Footer({ onSectionChange }: FooterProps) {
-  const quickLinks = [
+  const quickLinks: Array<{ id: PageType; label: string }> = [
     { id: 'about', label: 'About Brenden' },
     { id: 'services', label: 'Services & Pricing' },
     { id: 'contact', label: 'Contact Us' }
   ]
 
-  const legalLinks = [
+  const legalLinks: Array<{ id: PageType; label: string; icon: JSX.Element }> = [
     { id: 'policies', label: 'Policies & Terms', icon: <FileText className="w-4 h-4" /> },
-    { id: 'faq', label: 'FAQ', icon: <HelpCircle className="w-4 h-4" /> }
+    { id: 'resources', label: 'FAQ', icon: <HelpCircle className="w-4 h-4" /> },
+    { id: 'resources', label: 'FAQ', icon: <HelpCircle className="w-4 h-4" /> }
   ]
 
   const services = [
