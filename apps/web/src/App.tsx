@@ -12,6 +12,7 @@ import { Contact } from './pages/Contact'
 import Resources from '@/pages/Resources'
 import ClinicInfo from '@/pages/Clinic'
 import ProfilePage from '@/pages/Profile'
+import { Booking } from './pages/Booking'
 
 function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('home')
@@ -55,6 +56,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home onNavigate={handleNavigate} />} />
         <Route path="/about" element={<About />} />
+        <Route path="/booking" element={<Booking />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services onBookNow={() => handleNavigate('booking')} />} />
         <Route path="/resources" element={<Resources />} />
