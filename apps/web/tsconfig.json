@@ -17,7 +17,7 @@
       "@/lib/*": ["./src/lib/*"],
       "@/hooks/*": ["./src/hooks/*"],
       "@/styles/*": ["./src/styles/*"],
-      "@/assets/*": ["./src/assets/*"]
+      "@/assets/*": ["public/assets/*"]
     }
     // "include": ["src", "types", ".storybook"]
   }
