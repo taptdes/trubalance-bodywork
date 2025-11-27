@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Heart, Instagram, Facebook, Mail, Phone, MapPin, FileText, HelpCircle } from 'lucide-react'
-import logoImage from '/logo-mark.svg'
+import logoImage from '/assets/branding/logo-mark.svg'
 import type { PageType } from '@/components/ui/navigation/types'
 import type { JSX } from 'react'
 

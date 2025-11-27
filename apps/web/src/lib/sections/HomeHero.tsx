@@ -3,64 +3,34 @@ import type { HomeHeroProps } from "@/lib/types"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Hero } from '@/lib/blocks/Hero'
 import { HeroGallery } from "@/lib/blocks/HeroGallery"
-import imgOceanVibes from "@/assets/images/img_oceanVibes.jpg"
-import imgOceanYoga from "@/assets/images/img_oceanYoga.jpg"
-import imgOilDrops from "@/assets/images/img_oilsDrop.jpg"
-import imgStones from "@/assets/images/img_stones.jpg"
-import imgWaterRipple from "@/assets/images/img_waterRipples.jpg"
-import imgYoga from "@/assets/images/img_yoga.jpg"
-
+import imgFarLeft from "/assets/images/imgHeroGalleryFL.webp"
+import imgFarRight from "/assets/images/imgHeroGalleryFR.webp"
+import imgTopRight from "/assets/images/imgHeroGalleryTR.webp"
+import imgBottomRight from "/assets/images/imgHeroGalleryBR.webp"
+import imgTopLeft from "/assets/images/imgHeroGalleryTL.webp"
+import imgBottomLeft from "/assets/images/imgHeroGalleryBL.webp"
+import imgCenter from "/assets/images/imgHeroGalleryC.webp"
 import { Button } from "@/components/ui/button"
-{/*
-  import imgRoom from "@/assets/images/img_room.jpg"
-import bgImgSM from "@/assets/images/bg-whiteTexture.webp"
-import bgImgMD from "@/assets/images/bg-whiteTexture.webp"
-import bgImgLG from "@/assets/images/bg-whiteTexture.webp"
-const heroImages = {
-  sm: `${import.meta.env.VITE_API_URL}/assets/images/bgHomeHero-sm.webp`,
-  md: `${import.meta.env.VITE_API_URL}/assets/images/bgHomeHero-md.webp`,
-  lg: `${import.meta.env.VITE_API_URL}/assets/images/bgHomeHero-lg.webp`,
-}
-  const heroImages = {
-  sm: bgImgSM,
-    md: bgImgMD,
-  lg: bgImgLG
-}
-*/}
-
-
 
 const galleryImages = [
-  { src: imgOceanVibes, type: "image" as const, alt: "Ocean Vibes" },
-  { src: imgOceanYoga, type: "image" as const, alt: "Ocean Yoga" },
-  { src: imgOilDrops, type: "image" as const, alt: "Oil Drops" },
-  { src: imgStones, type: "image" as const, alt: "Stones" },
-  { src: imgWaterRipple, type: "image" as const, alt: "Water Ripple" },
-  { src: imgYoga, type: "image" as const, alt: "Yoga" },
+  { src: imgFarLeft, type: "image" as const, alt: "Lily Pad" },
+  { src: imgTopLeft, type: "image" as const, alt: "Hand Holding a Leaf" },
+  { src: imgBottomLeft, type: "image" as const, alt: "Oil Drops" },
+  { src: imgCenter, type: "image" as const, alt: "Sunset" },
+  { src: imgTopRight, type: "image" as const, alt: "Plants" },
+  { src: imgBottomRight, type: "image" as const, alt: "Oils" },
+  { src: imgFarRight, type: "image" as const, alt: "Crystals" },
 ]
-
-{/*
-const galleryImages = [
-  { src: `${import.meta.env.VITE_API_URL}/assets/images/img_oceanVibes.jpg`, type: "image" as const, alt: "Waxing" },
-  { src: `${import.meta.env.VITE_API_URL}/assets/images/img_oceanYoga.jpg`, type: "image" as const, alt: "Film still" },
-  { src: `${import.meta.env.VITE_API_URL}/assets/images/img_oilDrops.jpg`, type: "image" as const, alt: "Nails" },
-  { src: `${import.meta.env.VITE_API_URL}/assets/images/img_stones.jpg`, type: "image" as const, alt: "stones" },
-  { src: `${import.meta.env.VITE_API_URL}/assets/images/img_waterRipple.jpg`, type: "image" as const, alt: "Shower" },
-  { src: `${import.meta.env.VITE_API_URL}/assets/images/img_yoga.jpg`, type: "image" as const, alt: "Neck Pillow" },
-  { src: `${import.meta.env.VITE_API_URL}/assets/images/img_room.jpg`, type: "image" as const, alt: "Massage Table" },
-]
-*/}
 
 export function HomeHero({ onNavigate }: HomeHeroProps) {
   const [mounted, setMounted] = useState(false)
-    const { scrollY } = useScroll() // Framer Motion MotionValue
+  const { scrollY } = useScroll() // Framer Motion MotionValue
 
-   const heroY = useTransform(scrollY, [0, 300], [0, -300]) // move up 100px over first 300px scroll
-const heroOpacity = useTransform(scrollY, [0, 300], [1, 0])
-    useEffect(() => setMounted(true), [])
+  const heroY = useTransform(scrollY, [0, 300], [0, -300]) // move up 100px over first 300px scroll
+  const heroOpacity = useTransform(scrollY, [0, 300], [1, 0])
+  useEffect(() => setMounted(true), [])
 
-    if (!mounted) return null
-
+  if (!mounted) return null
 
   return (
     <Hero fullHeight="screen">
@@ -88,26 +58,26 @@ const heroOpacity = useTransform(scrollY, [0, 300], [1, 0])
           </Button>
         </div>
       </motion.div>
+
       {/* Scroll indicator */}
-        <motion.div 
-          className="absolute bottom-14 left-1/2 transform -translate-x-1/2 z-30"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.2, duration: 0.8 }}
-        >
-          <div className="flex flex-col items-center text-stone-500 px-4 py-3">
-            <span className="text-xs font-medium mb-2.5 tracking-tight">Scroll to explore</span>
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
-              className="w-5 h-9 border-2 border-stone-400 rounded-full flex justify-center"
-            >
-              <div className="w-0.5 h-2.5 bg-stone-400 rounded-full mt-2"></div>
-            </motion.div>
-          </div>
-        </motion.div>
-
+      <motion.div
+        className="absolute bottom-14 left-1/2 transform -translate-x-1/2 z-30"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.2, duration: 0.8 }}
+      >
+        <div className="flex flex-col items-center text-stone-500 px-4 py-3">
+          <span className="text-xs font-medium mb-2.5 tracking-tight">Scroll to explore</span>
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
+            className="w-5 h-9 border-2 border-stone-400 rounded-full flex justify-center"
+          >
+            <div className="w-0.5 h-2.5 bg-stone-400 rounded-full mt-2"></div>
+          </motion.div>
+        </div>
+      </motion.div>
+      
     </Hero>
-
   )
 }
