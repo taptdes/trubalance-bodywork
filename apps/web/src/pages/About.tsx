@@ -1,7 +1,7 @@
 import { Award, Heart, Sparkles, Activity, UserStar, HandHeart, HeartPlus, HeartHandshake } from 'lucide-react'
 const backendUrl = import.meta.env.VITE_BACKEND_URL
-const brendenHeadshot = `${backendUrl}/images/imgAboutHeadshot.webp`
-const brendenRunning = `${backendUrl}/images/imgAboutRunning.webp`
+const brendenHeadshot = `${backendUrl}/static-images/imgAboutHeadshot.webp`
+const brendenRunning = `${backendUrl}/static-images/imgAboutRunning.webp`
 
 export function About() {
   return (

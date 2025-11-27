@@ -1,7 +1,7 @@
 const galleryImages = [
-  { src: `${import.meta.env.VITE_BACKEND_URL}/images/imgServicesMassage.webp`, type: "image" as const, alt: "Therapeutic Massage" },
-  { src: `${import.meta.env.VITE_BACKEND_URL}/images/imgServicesReiki.webp`, type: "image" as const, alt: "Reiki" },
-  { src: `${import.meta.env.VITE_BACKEND_URL}/images/imgServicesTBBAlign.webp`, type: "image" as const, alt: "TruBalance Alignment Session" },
+  { src: `${import.meta.env.VITE_BACKEND_URL}/static-images/imgServicesMassage.webp`, type: "image" as const, alt: "Therapeutic Massage" },
+  { src: `${import.meta.env.VITE_BACKEND_URL}/static-images/imgServicesReiki.webp`, type: "image" as const, alt: "Reiki" },
+  { src: `${import.meta.env.VITE_BACKEND_URL}/static-images/imgServicesTBBAlign.webp`, type: "image" as const, alt: "TruBalance Alignment Session" },
 ]
 
 export interface Service {

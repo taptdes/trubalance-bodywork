@@ -3,7 +3,7 @@ import { AnimatedSection } from "./AnimatedSection"
 import { motion } from "framer-motion"
 import { Leaf, Heart, Gem, Users } from "lucide-react"
 const backendUrl = import.meta.env.VITE_BACKEND_URL
-const image = `${backendUrl}/images/imgHomeDetails.webp`
+const image = `${backendUrl}/static-images/imgHomeDetails.webp`
 
 const features = [
   {
