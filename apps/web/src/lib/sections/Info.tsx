@@ -35,7 +35,6 @@ export default function Info() {
     <section id="about" className="relative py-20 bg-white w-full" style={{ zIndex: 20 }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-
         {/* Our Values */}
         <div className="mb-16">
           <div className="text-center mb-12">
