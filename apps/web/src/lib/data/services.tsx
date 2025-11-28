@@ -10,6 +10,7 @@ export interface ServicePage {
   image: string
   modality: string
   popularity: number
+  onBookNow: () => void
 }
 
 export const services: ServicePage[] = [
@@ -20,6 +21,7 @@ export const services: ServicePage[] = [
     description: "Classic relaxation massage using flowing strokes to reduce stress and promote circulation.",
     icon: <Waves className="w-6 h-6" />,
     image: `${backendUrl}/static-images/imgServicesMassage.webp`,
+    onBookNow: () => { window.location.href = 'https://book.squareup.com/appointments/3kbzu7zt3ue90u/location/LYB1S1NE2CJN5/services' },
     modality: 'massage' as const,
     popularity: 1
   },
@@ -30,7 +32,8 @@ export const services: ServicePage[] = [
     description: "Gentle energy work fosters balance and relaxation, promoting natural healing for mind, body, and spirit.",
     icon: <Sparkles className="w-6 h-6" />,
     image: `${backendUrl}/static-images/imgServicesReiki.webp`,
-      modality: 'energy' as const,
+    onBookNow: () => { window.location.href = 'https://book.squareup.com/appointments/3kbzu7zt3ue90u/location/LYB1S1NE2CJN5/services/XSFQWZZY7NBGVAB52KSI3VF' },
+    modality: 'energy' as const,
     popularity: 3  },
   {
     title: "TruBalance Alignment Session",
@@ -39,6 +42,7 @@ export const services: ServicePage[] = [
     description: "Energy work that aligns your body and energy systems through a blend of intuitive techniques.",
     icon: <Star className="w-6 h-6" />,
     image: `${backendUrl}/static-images/imgServicesTBBAlign.webp`,
-      modality: 'energy' as const,
+    onBookNow: () => { window.location.href = 'https://book.squareup.com/appointments/3kbzu7zt3ue90u/location/LYB1S1NE2CJN5/services/TKAWXMXYJJTVS7AB52KSI3VF' },
+    modality: 'energy' as const,
     popularity: 4  },
 ]

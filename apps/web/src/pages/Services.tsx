@@ -290,7 +290,7 @@ export function Services({ onBookNow }: ServicesProps) {
                         )}
 
                         <Button
-                          onClick={onBookNow}
+                          onClick={service.onBookNow}
                           className={`w-full bg-primary hover:shadow-lg text-white transition-all duration-300 rounded-full cursor-pointer`}
                         >
                           Book This Service

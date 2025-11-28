@@ -11,6 +11,7 @@ export interface Service {
   price: string
   duration: string
   featured: boolean
+    onBookNow: () => void
 }
 
 export const featured: Service[] = galleryImages.map((img, i) => ({
@@ -23,5 +24,10 @@ export const featured: Service[] = galleryImages.map((img, i) => ({
   image: img.src,
   price: ["$50-125", "$50-120", "$125"][i],
   duration: ["30 - 90 min", "30 - 60 min", "60 min"][i],
+  onBookNow: [
+    () => {'https://book.squareup.com/appointments/3kbzu7zt3ue90u/location/LYB1S1NE2CJN5/services'},
+    () => {'https://book.squareup.com/appointments/3kbzu7zt3ue90u/location/LYB1S1NE2CJN5/services/XSFQWZZY7NBGVAB52KSI3VF'},
+    () => {'https://book.squareup.com/appointments/3kbzu7zt3ue90u/location/LYB1S1NE2CJN5/services/TKAWXMXYJJTVS7AB52KSI3VF'},
+  ][i],
   featured: i === 0,
 }))
