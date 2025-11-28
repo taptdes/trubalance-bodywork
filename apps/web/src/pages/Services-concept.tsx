@@ -10,7 +10,7 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { services } from '@/lib/data/index'
+import { services, packages } from '@/lib/data/index'
 
 type DurationFilter = 'all' | '30' | '60' | '90'
 type ModalityFilter = 'all' | 'massage' | 'energy'
@@ -87,7 +87,7 @@ export function Services({ onBookNow }: ServicesProps) {
         {/* Individual Services */}
         <div className="mb-20">
           <div className="mb-10 sticky top-0 bg-linear-to-br from-gray-50 via-emerald-50/30 to-teal-50/50 z-10 py-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-            <div className="flex items-center gap-2 overflow-visible pb-2 hide-scrollbar">
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 hide-scrollbar">
               {/* Duration Filter */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -273,7 +273,7 @@ export function Services({ onBookNow }: ServicesProps) {
                         <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
 
                         {/* Duration Options */}
-                        {service.durations.length > 0 && (
+                        {service.durations.length > 1 && (
                           <div className="mb-4">
                             <p className="text-xs text-gray-500 mb-2">Available durations:</p>
                             <div className="flex flex-wrap gap-2">
@@ -290,7 +290,7 @@ export function Services({ onBookNow }: ServicesProps) {
                         )}
 
                         <Button
-                          onClick={service.onBookNow}
+                          onClick={onBookNow}
                           className={`w-full bg-primary hover:shadow-lg text-white transition-all duration-300 rounded-full cursor-pointer`}
                         >
                           Book This Service
@@ -301,6 +301,58 @@ export function Services({ onBookNow }: ServicesProps) {
                 })}
               </div>
             )}
+          </div>
+
+          {/* Package Deals */}
+          <div className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-light text-gray-900 mb-4">Wellness Packages</h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Commit to your healing journey with our specially designed packages that offer both
+                savings and consistency
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {packages.map((pkg, index) => (
+                <Card
+                  key={index}
+                  className="relative overflow-hidden bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-500 group"
+                >
+                  <div
+                    className={`absolute top-0 left-0 right-0 h-2 bg-linear-to-r ${pkg.gradient}`}
+                  ></div>
+
+                  <CardHeader className="text-center pb-6 pt-8">
+                    <div
+                      className={`inline-flex items-center justify-center w-20 h-20 bg-linear-to-br ${pkg.gradient} text-white rounded-full mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform`}
+                    >
+                      <Star className="w-10 h-10" />
+                    </div>
+                    <CardTitle className="text-2xl mb-2">{pkg.title}</CardTitle>
+                    <div className="space-y-2">
+                      <div className="text-3xl font-light text-emerald-600">{pkg.price}</div>
+                      <div className="text-lg text-gray-400 line-through">{pkg.originalPrice}</div>
+                      <div className="inline-block bg-emerald-100 text-emerald-700 px-4 py-1 rounded-full text-sm font-medium">
+                        {pkg.savings}
+                      </div>
+                    </div>
+                    <div className="text-gray-500 mt-2">{pkg.sessions}</div>
+                  </CardHeader>
+
+                  <CardContent className="text-center px-8 pb-8">
+                    <p className="text-gray-600 mb-8 leading-relaxed">{pkg.description}</p>
+                    <Button
+                      onClick={onBookNow}
+                      variant="outlined"
+                      className={`w-full border-2 bg-linear-to-r ${pkg.gradient} bg-clip-text text-transparent hover:bg-linear-to-r hover:from-emerald-50 hover:to-teal-50 border-emerald-300 hover:border-emerald-400 transition-all duration-300 rounded-full py-3`}
+                    >
+                      Choose This Package
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
 
           {/* Special Notes */}
@@ -347,7 +399,7 @@ export function Services({ onBookNow }: ServicesProps) {
                   </li>
                   <li className="flex items-start">
                     <div className="w-2 h-2 bg-teal-500 rounded-full mt-2 mr-3 shrink-0"></div>
-                    Cancellations under 24 hours incur 50% fee.
+                    Deposits required for first-time clients and packages
                   </li>
                   <li className="flex items-start">
                     <div className="w-2 h-2 bg-teal-500 rounded-full mt-2 mr-3 shrink-0"></div>
@@ -355,7 +407,7 @@ export function Services({ onBookNow }: ServicesProps) {
                   </li>
                   <li className="flex items-start">
                     <div className="w-2 h-2 bg-teal-500 rounded-full mt-2 mr-3 shrink-0"></div>
-                    Payment processed at the end of your appointment.
+                    Sliding scale pricing available upon request
                   </li>
                 </ul>
               </div>
