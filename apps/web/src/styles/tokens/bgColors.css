@@ -28,3 +28,32 @@
   --bg-subtle: var(--color-stone-50);
   --bg-disabled: var(--color-stone-200);
 }
+
+:root {
+  --bg-primary: var(--colors-sage-400);
+  --bg-primary-light: var(--colors-sage-200);
+  --bg-primary-dark: var(--colors-sage-700);
+  --bg-secondary: var(--colors-sky-900);
+  --bg-secondary-light: var(--colors-sky-400);
+  --bg-secondary-dark: var(--colors-sky-1000);
+  --bg-accent: var(--colors-lavender-400);
+  --bg-accent-light: var(--colors-lavender-200);
+  --bg-accent-dark: var(--colors-lavender-800);
+  --bg-success: var(--colors-mint-700);
+  --bg-success-light: var(--colors-mint-200);
+  --bg-success-dark: var(--colors-mint-800);
+  --bg-warning: var(--colors-amber-600);
+  --bg-warning-light: var(--colors-amber-200);
+  --bg-warning-dark: var(--colors-amber-800);
+  --bg-error: var(--colors-rose-600);
+  --bg-error-light: var(--colors-rose-200);
+  --bg-error-dark: var(--colors-rose-800);
+  --bg-info: var(--colors-sky-500);
+  --bg-info-light: var(--colors-sky-200);
+  --bg-info-dark: var(--colors-sky-800);
+  --bg-default: var(--color-white);
+  --bg-content: var(--color-stone-100);
+  --bg-body: var(--color-stone-400);
+  --bg-subtle: var(--color-stone-50);
+  --bg-disabled: var(--color-stone-200);
+}
