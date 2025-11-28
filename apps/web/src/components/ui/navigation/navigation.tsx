@@ -97,12 +97,13 @@ export function Navigation({ onNavigate }: NavigationProps) {
                 ) : (
                   // Anonymous
                   <>
+                  {/*
                     <button
                       onClick={() => setIsSignInOpen(true)}
                       className="px-4 py-2 rounded-lg border transition-all duration-500 font-semibold border-primary text-primary hover:bg-primary hover:text-white"
                     >
                       Sign In
-                    </button>
+                    </button> */}
                     <Dialog open={isSignInOpen} onOpenChange={setIsSignInOpen}>
                       <DialogContent>
                         <AuthFlow onClose={() => setIsSignInOpen(false)} />
@@ -170,12 +171,13 @@ export function Navigation({ onNavigate }: NavigationProps) {
               </>
             ) : (
               <>
+              {/*
                 <button
                   onClick={() => setIsSignInOpen(true)}
                   className="mt-6 px-4 py-2 rounded-lg border transition-all duration-500 font-semibold border-primary text-primary hover:bg-primary hover:text-white"
                 >
                   Sign In
-                </button>
+                </button> */}
                 <Dialog open={isSignInOpen} onOpenChange={setIsSignInOpen}>
                   <DialogContent>
                     <AuthFlow onClose={() => setIsSignInOpen(false)} />
