@@ -1,4 +1,4 @@
-import { Waves, Zap, Sparkles, Star } from 'lucide-react'
+import { Waves, Sparkles, Star } from 'lucide-react'
 const backendUrl = import.meta.env.VITE_BACKEND_URL
 
 export interface ServicePage {
@@ -14,41 +14,31 @@ export interface ServicePage {
 
 export const services: ServicePage[] = [
   {
-    title: "Swedish Massage",
-    durations: [60, 90],
-    prices: { 60: 90, 90: 130 },
-    description: "Classic relaxation massage using flowing strokes to reduce stress and promote circulation. Perfect for first-time clients.",
+    title: "Therapeutic Massage",
+    durations: [30, 60, 90],
+    prices: { 30: 50, 60: 95, 90: 125 },
+    description: "Classic relaxation massage using flowing strokes to reduce stress and promote circulation.",
     icon: <Waves className="w-6 h-6" />,
-    image: `${backendUrl}/static-images/services_swedish.webp`,
+    image: `${backendUrl}/static-images/imgServicesMassage.webp`,
     modality: 'massage' as const,
     popularity: 1
   },
   {
-    title: "Deep Tissue Massage",
-    durations: [60, 90],
-    prices: { 60: 90, 90: 130 },
-    description: "Targeted work on chronic tension and knots using deeper pressure and specific techniques for lasting relief.",
-    icon: <Zap className="w-6 h-6" />,
-    image: `${backendUrl}/static-images/services_dt.webp`,
-       modality: 'massage' as const,
-    popularity: 2
-  },
-  {
     title: "Reiki Energy Healing",
-     durations: [60, 90],
-    prices: { 60: 90, 90: 130 },
-    description: "Gentle hands-on energy work to promote balance, relaxation, and natural healing of mind, body, and spirit.",
+     durations: [30, 60],
+    prices: { 30: 50, 60: 120 },
+    description: "Gentle energy work fosters balance and relaxation, promoting natural healing for mind, body, and spirit.",
     icon: <Sparkles className="w-6 h-6" />,
-    image: `${backendUrl}/static-images/services_reiki.webp`,
+    image: `${backendUrl}/static-images/imgServicesReiki.webp`,
       modality: 'energy' as const,
     popularity: 3  },
   {
     title: "TruBalance Alignment Session",
-    durations: [60, 90],
-    prices: { 60: 90, 90: 130 },
-    description: "Energy alignment session using crystals, tuning forks, and guided visualization to restore harmony.",
+    durations: [60],
+    prices: { 60: 125},
+    description: "Energy work that aligns your body and energy systems through a blend of intuitive techniques.",
     icon: <Star className="w-6 h-6" />,
-    image: `${backendUrl}/static-images/services_clothed.webp`,
-      modality: 'trauma' as const,
+    image: `${backendUrl}/static-images/imgServicesTBBAlign.webp`,
+      modality: 'energy' as const,
     popularity: 4  },
 ]
