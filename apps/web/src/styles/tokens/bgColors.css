@@ -30,10 +30,10 @@
 }
 
 :root {
-  --bg-primary: var(--colors-sage-400);
+  --bg-primary: var(--colors-sage-400, #8DC757);
   --bg-primary-light: var(--colors-sage-200);
   --bg-primary-dark: var(--colors-sage-700);
-  --bg-secondary: var(--colors-sky-900);
+  --bg-secondary: var(--colors-sky-900, #33346D);
   --bg-secondary-light: var(--colors-sky-400);
   --bg-secondary-dark: var(--colors-sky-1000);
   --bg-accent: var(--colors-lavender-400);
