@@ -1,12 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { 
-  MapPin, 
-  Clock, 
-  Phone, 
-  Mail, 
-  Navigation, 
+import {
+  MapPin,
+  Clock,
+  Phone,
+  Mail,
+  Navigation,
   Calendar,
   Info,
   Car,
@@ -15,30 +15,76 @@ import {
 } from 'lucide-react'
 
 const businessHours = [
-  { day: 'Monday', hours: '8:00 AM - 6:00 PM', isToday: false },
-  { day: 'Tuesday', hours: '8:00 AM - 6:00 PM', isToday: false },
-  { day: 'Wednesday', hours: '8:00 AM - 6:00 PM', isToday: false },
-  { day: 'Thursday', hours: '8:00 AM - 6:00 PM', isToday: false },
-  { day: 'Friday', hours: '8:00 AM - 5:00 PM', isToday: false },
-  { day: 'Saturday', hours: '9:00 AM - 2:00 PM', isToday: true },
-  { day: 'Sunday', hours: 'Closed', isToday: false }
+  { day: 'Monday', open: '8:30', close: '19:00' },
+  { day: 'Tuesday', open: '8:30', close: '17:30' },
+  { day: 'Wednesday', open: '13:00', close: '19:00' },
+  { day: 'Thursday', open: '8:30', close: '17:30' },
+  { day: 'Friday', open: '8:30', close: '15:30' },
+  { day: 'Saturday', open: '9:00', close: '15:00' },
+  { day: 'Sunday', open: null, close: null }
 ]
 
 const parkingDirections = [
-  "Free parking available in our lot behind the building",
-  "Street parking available on Main Street (metered)",
-  "Accessible parking spaces available near main entrance"
+  "Free parking available",
+  "Park near Etherios Therapy entrance (north west)",
+  "Accessible parking spaces available near all entrances"
 ]
 
 const publicTransit = [
-  "Bus Routes 12, 45, 67 stop at Main St & 2nd Ave (2 min walk)",
-  "Metro Red Line - Downtown Station (5 min walk)",
-  "Bike racks available at building entrance"
+  "Frontrunner to Provo - Provo Central Station (Bay B)  (1 min walk)",
+  "Bus Route 850 Lehi Station, 31 stops to State St / Center St (NB) (13 min walk)",
+  "Use entrance on the north west side of the building"
 ]
 
+
+const clinicAddress = "TruBalance Bodywork LLC, 388 W Center St, Orem, Ut 84057"
+
+function getDirectionsUrl(address: string) {
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
+  const encodedAddress = encodeURIComponent(address)
+  return isIOS
+    ? `https://maps.apple.com/?daddr=${encodedAddress}`
+    : `https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`
+}
+
+function isTimeWithinRange(open: string | null, close: string | null) {
+  if (!open || !close) return false
+
+  const now = new Date()
+  const current = now.getHours() * 60 + now.getMinutes()
+
+  const [oH, oM] = open.split(":").map(Number)
+  const [cH, cM] = close.split(":").map(Number)
+
+  const openMin = oH * 60 + oM
+  const closeMin = cH * 60 + cM
+
+  return current >= openMin && current <= closeMin
+}
+
+function formatTime(t: string | null) {
+  if (!t) return "Closed"
+
+  const [h, m] = t.split(":").map(Number)
+
+  const suffix = h >= 12 ? "PM" : "AM"
+  const hour = h % 12 === 0 ? 12 : h % 12
+  const minutes = m.toString().padStart(2, "0")
+
+  return `${hour}:${minutes} ${suffix}`
+}
+
+function formatHours(open: string | null, close: string | null) {
+  if (!open || !close) return "Closed"
+  return `${formatTime(open)} – ${formatTime(close)}`
+}
+
 export default function ClinicInfo() {
-  const today = new Date().getDay()
-  const todayHours = businessHours[today === 0 ? 6 : today - 1]
+  const todayIdx = new Date().getDay() // 0=Sun
+  const mappedIdx = todayIdx === 0 ? 6 : todayIdx - 1
+
+  const todayHours = businessHours[mappedIdx]
+  const isOpenNow = isTimeWithinRange(todayHours?.open, todayHours?.close)
 
   return (
     <section id="clinic-info" className="relative pt-30 pb-24 bg-white" style={{ zIndex: 10 }}>
@@ -55,7 +101,8 @@ export default function ClinicInfo() {
             Clinic Information
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We're conveniently located in downtown with easy access to parking and public transportation.
+            We're conveniently located on center street with easy access< br />
+            to parking and public transportation.
           </p>
         </div>
 
@@ -69,52 +116,57 @@ export default function ClinicInfo() {
                   Our Location
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-0">
+              <CardContent className="p-0 h-full">
                 {/* Interactive Map */}
-                <div className="relative h-96 bg-gray-100">
+                <div className="relative p-0 h-3/4 bg-gray-100">
+                  {/* Interactive Google Map */}
                   <iframe
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=-122.4194%2C37.7749%2C-122.4094%2C37.7849&layer=mapnik&marker=37.7799,-122.4144"
+                    src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3043.0129011091913!2d-122.4194!3d37.7749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874d9beef73b6acb%3A0xaad00884b7a2d56d!2sTruBalance%20Bodywork%20LLC!5e0!3m2!1sen!2sus!4v1764465614956!5m2!1sen!2sus`}
                     className="w-full h-full border-0"
                     title="Clinic Location Map"
                     loading="lazy"
                   />
-                  <Button 
-                    className="absolute bottom-4 right-4 shadow-lg"
+
+                  {/* Get Directions Button */}
+                  <Button
                     size="sm"
+                    className="absolute bottom-4 right-4 shadow-lg bg-white text-gray-800 hover:bg-gray-100"
+                    onClick={() => window.open(getDirectionsUrl(clinicAddress), "_blank")}
                   >
                     <Navigation className="h-4 w-4 mr-2" />
                     Get Directions
                   </Button>
                 </div>
-                
+
                 {/* Address Details */}
-                <div className="p-6 bg-gray-50 border-t">
+                <div className="p-6 h-1/4 bg-gray-50 border-t">
                   <div className="flex items-start gap-3 mb-4">
                     <MapPin className="h-5 w-5 text-primary mt-1" />
                     <div>
                       <p className="text-sm text-gray-500 mb-1">Address</p>
-                      <p className="text-lg">123 Main Street, Suite 200</p>
-                      <p className="text-gray-600">San Francisco, CA 94102</p>
+                      <p className="text-lg">388 W Center St</p>
+                      <p className="text-gray-600">Orem, UT 84057</p>
+                      <p className="text-gray-600">(Inside Etherios Therapy)</p>
                     </div>
                   </div>
-                  
+
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="flex items-start gap-3">
                       <Phone className="h-5 w-5 text-primary mt-1" />
                       <div>
                         <p className="text-sm text-gray-500 mb-1">Phone</p>
-                        <a href="tel:+14155551234" className="text-primary hover:underline">
-                          (415) 555-1234
+                        <a href="tel:+1801-691-6657" className="text-primary hover:underline">
+                          801-691-6657
                         </a>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start gap-3">
                       <Mail className="h-5 w-5 text-primary mt-1" />
                       <div>
                         <p className="text-sm text-gray-500 mb-1">Email</p>
-                        <a href="mailto:info@wellnesschiropracti.com" className="text-primary hover:underline">
-                          info@wellnesschiro.com
+                        <a href="mailto:brenden.heywood.lmt@gmail.com" className="text-primary hover:underline">
+                          brenden.heywood.lmt@gmail.com
                         </a>
                       </div>
                     </div>
@@ -135,31 +187,50 @@ export default function ClinicInfo() {
               </CardHeader>
               <CardContent className="pt-6">
                 {/* Current Status */}
-                <div className="mb-6 p-4 bg-green-50 rounded-lg border border-green-200">
+                <div
+                  className={`
+                    mb-6 p-4 rounded-lg border
+                    ${isOpenNow ? "bg-green-50 border-green-200" : "bg-red-50 border-red-200"}
+                  `}
+                >
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="h-2 w-2 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-green-800">Open Now</span>
+                    <div
+                      className={`
+                        h-2 w-2 rounded-full animate-pulse
+                        ${isOpenNow ? "bg-green-500" : "bg-red-500"}
+                      `}
+                    />
+                    <span className={isOpenNow ? "text-green-800" : "text-red-800"}>
+                      {isOpenNow ? "Open Now" : "Closed Now"}
+                    </span>
                   </div>
-                  <p className="text-sm text-green-700">
-                    Today: {todayHours.hours}
+
+                  <p className={isOpenNow ? "text-sm text-green-700" : "text-sm text-red-700"}>
+                    Today: {formatHours(todayHours.open, todayHours.close)}
                   </p>
                 </div>
 
                 {/* Weekly Hours */}
                 <div className="space-y-3">
-                  {businessHours.map((item, index) => (
-                    <div 
-                      key={index}
-                      className={`flex justify-between items-center pb-3 border-b last:border-0 ${
-                        item.isToday ? 'font-medium text-primary' : 'text-gray-600'
-                      }`}
-                    >
-                      <span>{item.day}</span>
-                      <span className={item.hours === 'Closed' ? 'text-gray-400' : ''}>
-                        {item.hours}
-                      </span>
-                    </div>
-                  ))}
+                  {businessHours.map((item, idx) => {
+                    const isToday = idx === mappedIdx
+                    const textColor = item.open ? "text-gray-700" : "text-gray-400"
+
+                    return (
+                      <div
+                        key={idx}
+                        className={`
+                          flex justify-between items-center pb-3 border-b last:border-0
+                          ${isToday ? "font-semibold text-primary" : "text-gray-600"}
+                        `}
+                      >
+                        <span>{item.day}</span>
+                        <span className={textColor}>
+                          {formatHours(item.open, item.close)}
+                        </span>
+                      </div>
+                    )
+                  })}
                 </div>
 
                 <Button className="w-full mt-6" variant="outlined">
@@ -178,10 +249,10 @@ export default function ClinicInfo() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-sm text-blue-800 space-y-2">
-                <p>• Please arrive 10 minutes early for new patient appointments</p>
-                <p>• Bring a valid ID and insurance card</p>
-                <p>• Wear comfortable clothing</p>
-                <p>• COVID-19 safety protocols in place</p>
+                <p>• Arrive 5–10 minutes early for your session.</p>
+                <p>• Hydrate after your massage to aid recovery.</p>
+                <p>• Share any relevant health concerns beforehand.</p>
+                <p>• Check our cancellation policy to avoid fees.</p>
               </CardContent>
             </Card>
           </div>
