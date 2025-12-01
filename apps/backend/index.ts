@@ -14,6 +14,7 @@ import {
 import { authenticate } from "./src/utils/authenticate.js"
 import path from "path"
 import { fileURLToPath } from "url"
+import articlesRouter from "./src/routes/articles.js"
 
 const app = express()
 
@@ -32,10 +33,14 @@ app.use(cors({
     if (!origin || allowedOrigins.includes(origin)) return callback(null, true)
     return callback(new Error("Not allowed by CORS"))
   },
-  methods: ["GET", "POST", "OPTIONS"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true,
 }))
 
 app.use(express.json())
+
+// Mount articles router before other routes
+app.use("/articles", articlesRouter)
 
 app.use("/static-images", express.static(path.join(__dirname, "../assets/images")))
 
@@ -108,7 +113,7 @@ app.get("/images/public/:filename", (req: Request, res: Response) => {
 
 app.get("/", (req, res) => res.send("🚀 Backend is running"))
 
-const PORT = process.env.BACKEND_PORT || 3000
+const PORT = process.env.BACKEND_PORT || process.env.PORT || 3000
 app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`))
 
 export default app
