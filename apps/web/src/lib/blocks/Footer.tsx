@@ -19,16 +19,12 @@ export function Footer({ onSectionChange }: FooterProps) {
   const legalLinks: Array<{ id: PageType; label: string; icon: JSX.Element }> = [
     { id: 'policies', label: 'Policies & Terms', icon: <FileText className="w-4 h-4" /> },
     { id: 'resources', label: 'FAQ', icon: <HelpCircle className="w-4 h-4" /> },
-    { id: 'resources', label: 'FAQ', icon: <HelpCircle className="w-4 h-4" /> }
   ]
 
   const services = [
-    'Swedish Massage',
-    'Deep Tissue Massage', 
+    'Therapeutic Massage',
     'Reiki Energy Healing',
-    'Chakra Balancing',
-    'Trauma-Informed Bodywork',
-    'Sound Healing'
+    'TruBalance Alignment'
   ]
 
   return (
@@ -130,14 +126,14 @@ export function Footer({ onSectionChange }: FooterProps) {
               <div className="flex items-start space-x-3 group">
                 <Mail className="w-5 h-5 text-emerald-400 mt-0.5 group-hover:scale-110 transition-transform" />
                 <div>
-                  <p className="text-gray-300">hello@trubalancebodywork.com</p>
+                  <p className="text-gray-300">brenden.heywood.lmt@gmail.com</p>
                   <p className="text-gray-400 text-sm">We respond within 24 hours</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3 group">
                 <Phone className="w-5 h-5 text-emerald-400 mt-0.5 group-hover:scale-110 transition-transform" />
                 <div>
-                  <p className="text-gray-300">(555) 123-4567</p>
+                  <p className="text-gray-300">801-691-6657</p>
                   <p className="text-gray-400 text-sm">Call or text for appointments</p>
                 </div>
               </div>
@@ -145,8 +141,9 @@ export function Footer({ onSectionChange }: FooterProps) {
                 <MapPin className="w-5 h-5 text-emerald-400 mt-0.5 group-hover:scale-110 transition-transform" />
                 <div>
                   <p className="text-gray-300">
-                    123 Healing Way<br />
-                    Springfield, ST 12345
+                    388 W Center St<br />
+                    Orem, UT 84057<br />
+                    (Inside Etherios Therapy)
                   </p>
                   <p className="text-gray-400 text-sm">By appointment only</p>
                 </div>
