@@ -9,7 +9,7 @@ import { Footer } from '@/lib/blocks/Footer'
 import './index.css'
 import { Services } from './pages/Services'
 import { Contact } from './pages/Contact'
-import Resources from '@/pages/Resources'
+import {Resources} from '@/pages/Resources'
 import ClinicInfo from '@/pages/Clinic'
 import ProfilePage from '@/pages/Profile'
 

@@ -1,6 +1,7 @@
 /// <reference types="vitest/config" />
 import path from 'path'
 import react from '@vitejs/plugin-react'
+import mdx from '@mdx-js/rollup'
 import tailwindcss from '@tailwindcss/vite'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import { defineConfig } from 'vite'
@@ -11,6 +12,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   plugins: [
+    mdx({
+      jsxImportSource: 'react',
+      providerImportSource: '@mdx-js/react',
+    }),
     react(),
     tailwindcss(),
     nodePolyfills(),
