@@ -126,14 +126,14 @@ export function Footer({ onSectionChange }: FooterProps) {
               <div className="flex items-start space-x-3 group">
                 <Mail className="w-5 h-5 text-emerald-400 mt-0.5 group-hover:scale-110 transition-transform" />
                 <div>
-                  <p className="text-gray-300">brenden.heywood.lmt@gmail.com</p>
+                  <a href="mailto:hello@trubalance.life" className="text-gray-300 text-base decoration-none">hello@trubalance.life</a>
                   <p className="text-gray-400 text-sm">We respond within 24 hours</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3 group">
                 <Phone className="w-5 h-5 text-emerald-400 mt-0.5 group-hover:scale-110 transition-transform" />
                 <div>
-                  <p className="text-gray-300">801-691-6657</p>
+                  <a href="tel:+1801-691-6657" className="text-gray-300 text-base">801-691-6657</a>
                   <p className="text-gray-400 text-sm">Call or text for appointments</p>
                 </div>
               </div>

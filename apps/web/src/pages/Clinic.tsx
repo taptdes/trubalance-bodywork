@@ -15,12 +15,12 @@ import {
 } from 'lucide-react'
 
 const businessHours = [
-  { day: 'Monday', open: '8:30', close: '19:00' },
-  { day: 'Tuesday', open: '8:30', close: '17:30' },
+  { day: 'Monday', open: '10:00', close: '18:00' },
+  { day: 'Tuesday', open: '10:00', close: '17:00' },
   { day: 'Wednesday', open: '13:00', close: '19:00' },
-  { day: 'Thursday', open: '8:30', close: '17:30' },
+  { day: 'Thursday', open: '11:00', close: '18:00' },
   { day: 'Friday', open: '8:30', close: '15:30' },
-  { day: 'Saturday', open: '9:00', close: '15:00' },
+  { day: 'Saturday', open: '8:00', close: '15:30' },
   { day: 'Sunday', open: null, close: null }
 ]
 
@@ -165,8 +165,8 @@ export default function ClinicInfo() {
                       <Mail className="h-5 w-5 text-primary mt-1" />
                       <div>
                         <p className="text-sm text-gray-500 mb-1">Email</p>
-                        <a href="mailto:brenden.heywood.lmt@gmail.com" className="text-primary hover:underline">
-                          brenden.heywood.lmt@gmail.com
+                        <a href="mailto:hello@trubalance.life" className="text-primary hover:underline">
+                          hello@trubalance.life
                         </a>
                       </div>
                     </div>
